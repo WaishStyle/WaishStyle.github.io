@@ -116,7 +116,7 @@ const reviews = {
         {
             name: "P***b",
             avatar: "P",
-            country: "🇵🇪",
+            country: "🇵🇪 Peru",
             rating: 5,
             size: "S",
             color: "Beige",
