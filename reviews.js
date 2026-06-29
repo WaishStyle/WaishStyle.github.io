@@ -55,15 +55,15 @@ const reviews = {
     /* ---------- Reviews for Product #2 ---------- */
     2: [
         {
-            name: "Olivia R.",
-            avatar: "O",
+            name: "l***s",
+            avatar: "l",
             country: "🇺🇸 United States",
             rating: 5,
-            size: "M",
-            color: "Blue",
+            size: "39",
+            color: "Balck",
             likes: 31,
-            date: "June 15, 2026",
-            text: "Amazing quality for the price! Looks so expensive in person."
+            date: "June 23, 2026",
+            text: "My slides came superrr fast im so happy and they’re perfect i love them!"
         },
         {
             name: "Mia T.",
