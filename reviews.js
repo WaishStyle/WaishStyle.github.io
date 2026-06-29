@@ -20,7 +20,7 @@ const reviews = {
         {
             name: "E***a.",
             avatar: "E",
-            country: "RU Russia",
+            country: "🇷🇺 Russia",
             rating: 5,
             size: "L",
             color: "Dark Brown",
@@ -31,7 +31,7 @@ const reviews = {
         {
             name: "H***R",
             avatar: "H",
-            country: "RU Russia",
+            country: "🇷🇺 Russia",
             rating: 5,
             size: "S",
             color: "Dark Brown",
@@ -42,7 +42,7 @@ const reviews = {
         {
             name: "d***r",
             avatar: "d",
-            country: "VN Vietnam",
+            country: "🇻🇳 Vietnam",
             rating: 4,
             size: "S",
             color: "Dark Brown",
