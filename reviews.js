@@ -110,8 +110,19 @@ const reviews = {
             size: "S",
             color: "Beige",
             likes: 9,
-            date: "Aug 07, 2026",
+            date: "Aug 07, 2025",
             text: "A wonderful set for a vacation by the sea, the size matches the stated specifications. For a height of 164 cm, the skirt is a bit long, but that's what I wanted. The laces are imitation; they cannot be used to adjust or tighten the elastic on the skirt."
+        }
+        {
+            name: "P***b",
+            avatar: "P",
+            country: "🇵🇪",
+            rating: 5,
+            size: "S",
+            color: "Beige",
+            likes: 25,
+            date: "Oct 14, 2025",
+            text: "Beautiful! I ordered it in size S, the top fit perfectly but the skirt was too long for me, also it doesn't come with lining, but for the price it seems fine to me, so I totally recommend it!."
         }
     ],
 
