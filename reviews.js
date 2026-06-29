@@ -92,26 +92,26 @@ const reviews = {
     /* ---------- Reviews for Product #3 ---------- */
     3: [
         {
-            name: "Sophia W.",
-            avatar: "S",
-            country: "🇺🇸 United States",
+            name: "a***a",
+            avatar: "a",
+            country: 🇺🇦 Ukraine",
             rating: 5,
-            size: "M",
-            color: "Pink",
+            size: "S",
+            color: "Beige",
             likes: 15,
-            date: "June 14, 2026",
-            text: "Love this! Great quality and perfect fit. Highly recommend."
+            date: "Aug 28, 2025",
+            text: "An amazing set, the skirt is slightly see-through and the straps are like a bra, but it looks very nice. I chose it specifically for this trip, it arrived quickly (in 13 days). I did not communicate with the store."
         },
         {
-            name: "Ava B.",
-            avatar: "A",
-            country: "🇩🇪 Germany",
-            rating: 4,
+            name: "D***s",
+            avatar: "D",
+            country: "🇺🇦 Ukraine",
+            rating: 5,
             size: "S",
-            color: "White",
+            color: "Beige",
             likes: 9,
-            date: "June 5, 2026",
-            text: "Really nice product. Looks exactly like the photos."
+            date: "Aug 07, 2026",
+            text: "A wonderful set for a vacation by the sea, the size matches the stated specifications. For a height of 164 cm, the skirt is a bit long, but that's what I wanted. The laces are imitation; they cannot be used to adjust or tighten the elastic on the skirt."
         }
     ],
 
