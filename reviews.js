@@ -66,15 +66,15 @@ const reviews = {
             text: "My slides came superrr fast im so happy and they’re perfect i love them!"
         },
         {
-            name: "Mia T.",
-            avatar: "M",
-            country: "🇨🇦 Canada",
+            name: "S***e",
+            avatar: "S",
+            country: "🇺🇸 United States",
             rating: 5,
-            size: "S",
-            color: "White",
+            size: "39",
+            color: "Rosy Red",
             likes: 20,
-            date: "June 10, 2026",
-            text: "Super cute and versatile. Wore it to the beach and got so many compliments!"
+            date: "June 23, 2026",
+            text: "Nice 👍 nice love it so much"
         }
     ],
 
