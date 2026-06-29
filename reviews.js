@@ -76,6 +76,17 @@ const reviews = {
             date: "June 23, 2026",
             text: "Nice 👍 nice love it so much"
         }
+        {
+            name: "4***r",
+            avatar: "4",
+            country: "🇺🇸 United States",
+            rating: 5,
+            size: "37",
+            color: "Rosy Red",
+            likes: 20,
+            date: "28",
+            text: "..."
+        }
     ],
 
     /* ---------- Reviews for Product #3 ---------- */
