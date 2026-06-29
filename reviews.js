@@ -18,37 +18,37 @@ const reviews = {
     /* ---------- Reviews for Product #1 ---------- */
     1: [
         {
-            name: "Sarah M.",
-            avatar: "S",
-            country: "🇺🇸 United States",
+            name: "E***a.",
+            avatar: "E",
+            country: "RU Russia",
             rating: 5,
-            size: "M",
-            color: "Brown",
+            size: "L",
+            color: "Dark Brown",
             likes: 24,
-            date: "June 12, 2026",
-            text: "Absolutely love this dress! The fabric is so soft and it fits perfectly. Got so many compliments on vacation!"
+            date: "June 02, 2026",
+            text: "Very nice top, but if you are short, it will fit like a dress; it spports the chest even without a bra."
         },
         {
-            name: "Emma K.",
-            avatar: "E",
-            country: "🇬🇧 United Kingdom",
+            name: "H***R",
+            avatar: "H",
+            country: "RU Russia",
             rating: 5,
             size: "S",
-            color: "Brown",
+            color: "Dark Brown",
             likes: 18,
-            date: "June 8, 2026",
-            text: "Perfect summer dress. Runs true to size, very flowy and comfortable. Will definitely buy again!"
+            date: "May 06, 2026",
+            text: "The top is cool; but the color is a bit different (brighter) and it turned out to be longer than i expeted. The fabric is very nice."
         },
         {
-            name: "Jessica L.",
-            avatar: "J",
-            country: "🇦🇺 Australia",
+            name: "d***r",
+            avatar: "d",
+            country: "VN Vietnam",
             rating: 4,
-            size: "L",
-            color: "Brown",
+            size: "S",
+            color: "Dark Brown",
             likes: 11,
-            date: "May 30, 2026",
-            text: "Beautiful dress, color is exactly as shown. Shipping was fast too!"
+            date: "Mar 18, 2026",
+            text: "I Love it so much it is soft and comfy"
         }
     ],
 
