@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaishStyle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #E91E63;
+            --pink-dark: #C2185B;
+            --bg: #E7E7E7;
+            --white: #fff;
+            --text: #1E1E1E;
+            --muted: #777;
+            --radius: 20px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        img { pointer-events: none; -webkit-user-drag: none; }
+
+        /* NAV */
+        nav { display: flex; justify-content: center; padding: 14px 16px; }
+        .nav-inner {
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.7);
+            border-radius: 999px; height: 44px;
+            display: flex; align-items: center; padding: 0 20px; gap: 8px;
+        }
+        .logo-icon {
+            width: 28px; height: 28px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 800; font-size: 14px;
+        }
+        .logo-text { font-size: 1rem; font-weight: 700; color: var(--text); }
+        .logo-text span { color: var(--pink); }
+
+        /* PRODUCT LAYOUT */
+        #product-container { display: none; max-width: 860px; margin: 32px auto; padding: 0 24px; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+
+        /* SLIDER - 9:16 */
+        .slider-wrap {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            aspect-ratio: 9 / 16;
+            position: relative;
+            background: #ddd;
+        }
+        .slider-track { display: flex; height: 100%; transition: transform 0.4s ease; }
+        .slider-slide { min-width: 100%; height: 100%; }
+        .slider-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .slider-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.8); border: none;
+            width: 36px; height: 36px; border-radius: 50%;
+            font-size: 1rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+        .slider-dots {
+            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 6px;
+        }
+        .dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.2s;
+        }
+        .dot.active { background: #fff; }
+
+        /* INFO */
+        .prod-info { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 80px; }
+        .prod-name { font-size: 1.4rem; font-weight: 700; line-height: 1.3; }
+
+        /* RATING */
+        .prod-rating-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .stars-row { display: flex; gap: 2px; }
+        .star { font-size: 1rem; }
+        .star.full { color: #f59e0b; }
+        .star.half { color: #f59e0b; opacity: 0.5; }
+        .star.empty { color: #ddd; }
+        .rating-score { font-weight: 700; font-size: 0.95rem; }
+        .rating-count, .sold-count { color: var(--muted); font-size: 0.85rem; }
+
+        /* PRICE */
+        .prod-prices { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+        .prod-price { font-size: 1.5rem; font-weight: 700; color: var(--pink); }
+        .prod-old { font-size: 1rem; color: var(--muted); text-decoration: line-through; }
+
+        /* SIZES */
+        .sizes-label { font-size: 0.9rem; font-weight: 600; }
+        .sizes-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+        .size-tag {
+            padding: 8px 14px;
+            border: 1.5px solid #ddd;
+            border-radius: 12px;
+            font-size: 0.8rem; font-weight: 600;
+            cursor: pointer; transition: all 0.15s;
+            background: var(--white); text-align: center;
+        }
+        .size-tag:hover, .size-tag.active { border-color: var(--pink); color: var(--pink); background: #fff0f5; }
+        .size-name { display: block; font-size: 0.85rem; }
+        .size-price { display: block; font-size: 0.75rem; color: var(--pink); font-weight: 700; margin-top: 2px; }
+        .size-old { display: block; font-size: 0.7rem; color: var(--muted); text-decoration: line-through; }
+
+        .prod-desc { color: var(--muted); line-height: 1.8; font-size: 0.9rem; }
+
+        /* BUTTON */
+        .prod-btn {
+            display: flex; align-items: center; justify-content: center;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            color: #fff; font-weight: 700; font-size: 1rem;
+            border-radius: 999px; text-decoration: none;
+            box-shadow: 0 6px 20px rgba(233,30,99,0.35);
+            transition: transform 0.2s;
+        }
+        .prod-btn:hover { transform: translateY(-2px); }
+
+        /* REVIEWS */
+        .reviews-section { margin-top: 48px; }
+        .reviews-section h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+        .reviews-avg { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .avg-score { font-size: 3rem; font-weight: 800; line-height: 1; }
+        .reviews-count { font-size: 0.85rem; color: var(--muted); margin-top: 4px; display: block; }
+        .reviews-list { display: flex; flex-direction: column; gap: 16px; }
+        .review-card { background: var(--white); border-radius: var(--radius); padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .review-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+        .reviewer-avatar {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 700; font-size: 1rem; flex-shrink: 0;
+        }
+        .reviewer-info { flex: 1; }
+        .reviewer-name { font-weight: 600; font-size: 0.9rem; display: block; }
+        .reviewer-date { font-size: 0.8rem; color: var(--muted); }
+        .review-stars { display: flex; gap: 2px; margin-left: auto; }
+        .review-text { font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; }
+        .review-likes { font-size: 0.8rem; color: var(--muted); }
+
+        /* NOT FOUND */
+        #not-found {
+            display: none; flex-direction: column;
+            align-items: center; justify-content: center;
+            min-height: 60vh; gap: 12px; color: var(--muted);
+            text-align: center; padding: 24px;
+        }
+        #not-found h2 { font-size: 1.4rem; color: var(--text); }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .product-grid { grid-template-columns: 1fr; gap: 24px; }
+            .slider-wrap { max-width: 300px; margin: 0 auto; width: 100%; }
+            .prod-info { position: static; }
+            .prod-name { font-size: 1.2rem; }
+            #product-container { padding: 0 16px; margin: 20px auto; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <div class="logo-icon">W</div>
+        <span class="logo-text">WaishStyle<span>.</span></span>
+    </div>
+</nav>
+
+<div id="product-container">
+    <div class="product-grid">
+
+        <!-- SLIDER -->
+        <div class="slider-wrap">
+            <div class="slider-track" id="sliderTrack"></div>
+            <button class="slider-btn prev" id="sliderPrev">‹</button>
+            <button class="slider-btn next" id="sliderNext">›</button>
+            <div class="slider-dots" id="sliderDots"></div>
+        </div>
+
+        <!-- INFO -->
+        <div class="prod-info">
+            <h1 id="prod-name"></h1>
+            <div class="prod-rating-row">
+                <div class="stars-row" id="prod-stars"></div>
+                <span class="rating-score" id="prod-rating-score"></span>
+                <span class="rating-count" id="prod-rating-count"></span>
+                <span class="sold-count" id="prod-sold"></span>
+            </div>
+            <div class="prod-prices">
+                <span class="prod-price" id="prod-price"></span>
+                <span class="prod-old" id="prod-old-price"></span>
+            </div>
+            <div id="prod-sizes-wrap">
+                <div class="sizes-label">Select Size:</div>
+                <div class="sizes-row" id="prod-sizes"></div>
+            </div>
+            <p class="prod-desc" id="prod-desc"></p>
+            <a id="prod-btn" href="#" target="_blank" rel="noopener" class="prod-btn">Shop Now →</a>
+        </div>
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="reviews-section">
+        <h2>Customer Reviews</h2>
+        <div id="reviews-container"></div>
+    </div>
+</div>
+
+<div id="not-found">
+    <h2>Product not found</h2>
+    <p>Check the link and try again.</p>
+</div>
+
+<script src="reviews.js"></script>
+<script>
+
+/* ================================================
+   PRODUCTS
+   ================================================ */
+const products = {
+
+    /* ---------- Product #1 ---------- */
+    1: {
+        name: "Bohemian Sequin Halter Mini Dress",
+        price: "$40.00",
+        oldPrice: "$90.00",
+        rating: 7.0,
+        ratingCount: 340,
+        sold: 340,
+        // عکس ها - هر چند تا بخوای اضافه کن
+        images: [
+            ""https://i.pinimg.com/736x/3c/54/a9/3c54a959fe31364104227dc9d01b0cd2.jpg",
+            "",
+            ""
+        ],
+        // سایزها با قیمت جداگانه - هر کدوم نخوای حذف کن
+        sizes: [
+            { name: "XS", price: "$34.04", oldPrice: "$86.30" },
+            { name: "S",  price: "$34.88", oldPrice: "$87.99" },
+            { name: "M",  price: "$34.04", oldPrice: "$86.30" },
+            { name: "L",  price: "$34.04", oldPrice: "$86.30" },
+            { name: "XL", price: "$34.04", oldPrice: "$86.30" }
+        ],
+        description: "Boho Paisley Sequin Halter Mini Dress – perfect for beach vacation outfits, festival fashion & summer aesthetic looks. Flowy A-line silhouette with shimmering sequin details. Shop this bohemian vacation outfit idea today!",
+        link: "https://s.click.aliexpress.com/e/_c3eDnKez"
+    },
+
+    /* ---------- Product #2 ---------- */
+    2: {
+        name: "",
+        price: "",
+        oldPrice: "",
+        rating: 4.8,
+        ratingCount: 0,
+        sold: 0,
+        images: [
+            ""
+        ],
+        sizes: [
+            { name: "XS", price: "", oldPrice: "" },
+            { name: "S",  price: "", oldPrice: "" },
+            { name: "M",  price: "", oldPrice: "" },
+            { name: "L",  price: "", oldPrice: "" },
+            { name: "XL", price: "", oldPrice: "" }
+        ],
+        description: "",
+        link: ""
+    },
+
+    /* ---------- Product #3 ---------- */
+    3: {
+        name: "",
+        price: "",
+        oldPrice: "",
+        rating: 4.7,
+        ratingCount: 0,
+        sold: 0,
+        images: [""],
+        sizes: [
+            { name: "XS", price: "", oldPrice: "" },
+            { name: "S",  price: "", oldPrice: "" },
+            { name: "M",  price: "", oldPrice: "" },
+            { name: "L",  price: "", oldPrice: "" },
+            { name: "XL", price: "", oldPrice: "" }
+        ],
+        description: "",
+        link: ""
+    },
+
+    /* ---------- Product #4 ---------- */
+    4: {
+        name: "",
+        price: "",
+        oldPrice: "",
+        rating: 4.9,
+        ratingCount: 0,
+        sold: 0,
+        images: [""],
+        sizes: [
+            { name: "XS", price: "", oldPrice: "" },
+            { name: "S",  price: "", oldPrice: "" },
+            { name: "M",  price: "", oldPrice: "" },
+            { name: "L",  price: "", oldPrice: "" },
+            { name: "XL", price: "", oldPrice: "" }
+        ],
+        description: "",
+        link: ""
+    },
+
+    /* ---------- Product #5 ---------- */
+    5: {
+        name: "",
+        price: "",
+        oldPrice: "",
+        rating: 4.8,
+        ratingCount: 0,
+        sold: 0,
+        images: [""],
+        sizes: [
+            { name: "XS", price: "", oldPrice: "" },
+            { name: "S",  price: "", oldPrice: "" },
+            { name: "M",  price: "", oldPrice: "" },
+            { name: "L",  price: "", oldPrice: "" },
+            { name: "XL", price: "", oldPrice: "" }
+        ],
+        description: "",
+        link: ""
+    },
+
+    /* ---------- Product #6 - کیف ---------- */
+    6: {
+        name: "",
+        price: "",
+        oldPrice: "",
+        rating: 4.9,
+        ratingCount: 0,
+        sold: 0,
+        images: [""],
+        sizes: [
+            { name: "One Size", price: "", oldPrice: "" }
+        ],
+        description: "",
+        link: ""
+    },
+
+    /* ---------- Product #7 - دمپایی ---------- */
+    7: {
+        name: "",
+        price: "",
+        oldPrice: "",
+        rating: 4.7,
+        ratingCount: 0,
+        sold: 0,
+        images: [""],
+        sizes: [
+            { name: "36", price: "", oldPrice: "" },
+            { name: "37", price: "", oldPrice: "" },
+            { name: "38", price: "", oldPrice: "" },
+            { name: "39", price: "", oldPrice: "" },
+            { name: "40", price: "", oldPrice: "" },
+            { name: "41", price: "", oldPrice: "" }
+        ],
+        description: "",
+        link: ""
+    },
+
+    /* ---------- محصول جدید اضافه کن ----------
+    8: {
+        name: "",
+        price: "",
+        oldPrice: "",
+        rating: 5,
+        ratingCount: 0,
+        sold: 0,
+        images: ["", ""],
+        sizes: [
+            { name: "S", price: "", oldPrice: "" },
+            { name: "M", price: "", oldPrice: "" }
+        ],
+        description: "",
+        link: ""
+    },
+    */
+
+};
+
+/* ================================================
+   ENGINE - دست نزن
+   ================================================ */
+let currentSlide = 0;
+let totalSlides = 0;
+
+function renderStars(rating) {
+    let html = '';
+    for (let i = 1; i <= 5; i++) {
+        if (i <= Math.floor(rating)) html += '<span class="star full">★</span>';
+        else if (i - 0.5 <= rating) html += '<span class="star half">★</span>';
+        else html += '<span class="star empty">★</span>';
+    }
+    return html;
+}
+
+function buildSlider(images) {
+    const track = document.getElementById('sliderTrack');
+    const dots  = document.getElementById('sliderDots');
+    currentSlide = 0;
+    totalSlides  = images.length;
+
+    track.innerHTML = images.map(img => `
+        <div class="slider-slide"><img src="${img}" alt="product"></div>
+    `).join('');
+
+    dots.innerHTML = images.map((_, i) =>
+        `<div class="dot ${i===0?'active':''}" onclick="goToSlide(${i})"></div>`
+    ).join('');
+
+    goToSlide(0);
+}
+
+function goToSlide(n) {
+    currentSlide = (n + totalSlides) % totalSlides;
+    document.getElementById('sliderTrack').style.transform = `translateX(-${currentSlide * 100}%)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+
+document.getElementById('sliderPrev').onclick = () => goToSlide(currentSlide - 1);
+document.getElementById('sliderNext').onclick = () => goToSlide(currentSlide + 1);
+
+function loadProduct() {
+    const id = parseInt(window.location.hash.slice(1));
+    const p  = products[id];
+    const container = document.getElementById('product-container');
+    const notFound  = document.getElementById('not-found');
+
+    if (!p || !p.name) {
+        container.style.display = 'none';
+        notFound.style.display  = 'flex';
+        return;
+    }
+
+    document.title = p.name + ' – WaishStyle';
+    document.getElementById('prod-name').textContent          = p.name;
+    document.getElementById('prod-price').textContent         = p.price;
+    document.getElementById('prod-old-price').textContent     = p.oldPrice;
+    document.getElementById('prod-desc').textContent          = p.description;
+    document.getElementById('prod-btn').href                  = p.link;
+    document.getElementById('prod-stars').innerHTML           = renderStars(p.rating);
+    document.getElementById('prod-rating-score').textContent  = p.rating;
+    document.getElementById('prod-rating-count').textContent  = `(${p.ratingCount} reviews)`;
+    document.getElementById('prod-sold').textContent          = `· ${p.sold} sold`;
+
+    // Slider
+    buildSlider(p.images.filter(Boolean));
+
+    // Sizes with price
+    const sizesRow  = document.getElementById('prod-sizes');
+    const sizesWrap = document.getElementById('prod-sizes-wrap');
+    if (p.sizes && p.sizes.length > 0) {
+        sizesWrap.style.display = 'block';
+        sizesRow.innerHTML = p.sizes.map((s, i) => `
+            <div class="size-tag ${i===0?'active':''}" onclick="selectSize(this, '${s.price}', '${s.oldPrice}')">
+                <span class="size-name">${s.name}</span>
+                ${s.price ? `<span class="size-price">${s.price}</span>` : ''}
+                ${s.oldPrice ? `<span class="size-old">${s.oldPrice}</span>` : ''}
+            </div>
+        `).join('');
+        // Set first size price
+        if (p.sizes[0].price) {
+            document.getElementById('prod-price').textContent     = p.sizes[0].price;
+            document.getElementById('prod-old-price').textContent = p.sizes[0].oldPrice;
+        }
+    } else {
+        sizesWrap.style.display = 'none';
+    }
+
+    container.style.display = 'block';
+    notFound.style.display  = 'none';
+
+    if (typeof renderReviews === 'function') renderReviews(id);
+}
+
+function selectSize(el, price, oldPrice) {
+    document.querySelectorAll('.size-tag').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+    if (price) document.getElementById('prod-price').textContent     = price;
+    if (oldPrice) document.getElementById('prod-old-price').textContent = oldPrice;
+}
+
+window.addEventListener('hashchange', loadProduct);
+loadProduct();
+
+/* ================================================
+   SECURITY - ضد کپی
+   ================================================ */
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+    if (e.ctrlKey && ['c','u','s','a'].includes(e.key.toLowerCase())) e.preventDefault();
+    if (e.key === 'F12') e.preventDefault();
+});
+
+</script>
+</body>
+</html>
