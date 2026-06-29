@@ -75,7 +75,7 @@ const reviews = {
             likes: 20,
             date: "June 23, 2026",
             text: "Nice 👍 nice love it so much"
-        }
+        },
         {
             name: "4***r",
             avatar: "4",
@@ -94,7 +94,7 @@ const reviews = {
         {
             name: "a***a",
             avatar: "a",
-            country: 🇺🇦 Ukraine",
+            country: "🇺🇦 Ukraine",
             rating: 5,
             size: "S",
             color: "Beige",
@@ -112,7 +112,7 @@ const reviews = {
             likes: 9,
             date: "Aug 07, 2025",
             text: "A wonderful set for a vacation by the sea, the size matches the stated specifications. For a height of 164 cm, the skirt is a bit long, but that's what I wanted. The laces are imitation; they cannot be used to adjust or tighten the elastic on the skirt."
-        }
+        },
         {
             name: "P***b",
             avatar: "P",
