@@ -177,6 +177,17 @@ const reviews = {
             text: "Hate the top"
         },
         {
+            name: "H***t",
+            avatar: "H",
+            country: "🇺🇸 United States",
+            rating: 5,
+            size: "S",
+            color: "SK1",
+            likes: 19,
+            date: "Aug 21, 2025",
+            text: "Hate the top"
+        },
+        {
             name: "Amelia F.",
             avatar: "A",
             country: "🇬🇧 United Kingdom",
