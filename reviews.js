@@ -151,15 +151,15 @@ const reviews = {
             text: "The dress is beautiful and exactly the same as the picture . i love how sheer it is without showing anything. very breathtaking and breathable. the only con i have is tying the dress was an experienced! the crystal makes it hard to tie especially if you have a big chest. just know the crystal will be digging in your neck until you remove the dress but beauty is pain."
         }
         {
-            name: "M***n",
-            avatar: "M",
+            name: "S***n",
+            avatar: "S",
             country: "🇺🇸 United States",
             rating: 5,
-            size: "L",
-            color: "Pink",
+            size: "M",
+            color: "Blue",
             likes: 14,
-            date: "June 12, 2026",
-            text: "The dress is beautiful and exactly the same as the picture . i love how sheer it is without showing anything. very breathtaking and breathable. the only con i have is tying the dress was an experienced! the crystal makes it hard to tie especially if you have a big chest. just know the crystal will be digging in your neck until you remove the dress but beauty is pain."
+            date: "Apr 02, 2026",
+            text: "Definitely looks like the picture very happy with it. fits a little big to a medium but nothing i can’t work with perfect definitely will order well. i’m gonna order another one. that’s not what i like it. in shipment was very fast."
         }
     ],
 
