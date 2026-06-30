@@ -149,7 +149,7 @@ const reviews = {
             likes: 14,
             date: "June 12, 2026",
             text: "The dress is beautiful and exactly the same as the picture . i love how sheer it is without showing anything. very breathtaking and breathable. the only con i have is tying the dress was an experienced! the crystal makes it hard to tie especially if you have a big chest. just know the crystal will be digging in your neck until you remove the dress but beauty is pain."
-        }
+        },
         {
             name: "S***n",
             avatar: "S",
