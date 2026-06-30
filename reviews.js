@@ -203,15 +203,15 @@ const reviews = {
     /* ---------- Reviews for Product #6 - کیف ---------- */
     6: [
         {
-            name: "Harper G.",
-            avatar: "H",
+            name: "e***h",
+            avatar: "e",
             country: "🇺🇸 United States",
             rating: 5,
-            size: "One Size",
-            color: "Natural",
+            size: "40cm",
+            color: "Black",
             likes: 28,
-            date: "June 16, 2026",
-            text: "Love this bag! Perfect size for the beach. Great quality and very sturdy."
+            date: "Jul 07, 2025",
+            text: "just as in the photo Seller gave a little cute purse for my order It's big capacity straw bag and very nice Thank you seller Shipment was fast too"
         },
         {
             name: "Zoe K.",
