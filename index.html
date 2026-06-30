@@ -96,11 +96,6 @@
         .rating-score { font-weight: 700; font-size: 0.95rem; }
         .rating-count, .sold-count { color: var(--muted); font-size: 0.85rem; }
 
-        /* PRICE */
-        .prod-prices { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
-        .prod-price { font-size: 1.5rem; font-weight: 700; color: var(--pink); }
-        .prod-old { font-size: 1rem; color: var(--muted); text-decoration: line-through; }
-
         /* SIZES */
         .sizes-label { font-size: 0.9rem; font-weight: 600; }
         .sizes-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
@@ -114,8 +109,6 @@
         }
         .size-tag:hover, .size-tag.active { border-color: var(--pink); color: var(--pink); background: #fff0f5; }
         .size-name { display: block; font-size: 0.85rem; }
-        .size-price { display: block; font-size: 0.75rem; color: var(--pink); font-weight: 700; margin-top: 2px; }
-        .size-old { display: block; font-size: 0.7rem; color: var(--muted); text-decoration: line-through; }
 
         /* COLORS */
         .colors-label { font-size: 0.9rem; font-weight: 600; }
@@ -228,10 +221,6 @@
                 <span class="rating-count" id="prod-rating-count"></span>
                 <span class="sold-count" id="prod-sold"></span>
             </div>
-            <div class="prod-prices">
-                <span class="prod-price" id="prod-price"></span>
-                <span class="prod-old" id="prod-old-price"></span>
-            </div>
             <div id="prod-sizes-wrap">
                 <div class="sizes-label">Select Size:</div>
                 <div class="sizes-row" id="prod-sizes"></div>
@@ -274,8 +263,6 @@ const products = {
     /* ---------- Product #1 ---------- */
     1: {
         name: "Bohemian Sequin Halter Mini Dress",
-        price: "$40.00",
-        oldPrice: "$90.00",
         rating: 7.0,
         ratingCount: 340,
         sold: 340,
@@ -292,14 +279,8 @@ const products = {
             { hex: "#000000", name: "Dark Brown" },
             { hex: "#F5F5DC", name: "Lv" }
         ],
-        // سایزها با قیمت جداگانه - هر کدوم نخوای حذف کن
-        sizes: [
-            { name: "XS", price: "$34.04", oldPrice: "$86.30" },
-            { name: "S",  price: "$34.88", oldPrice: "$87.99" },
-            { name: "M",  price: "$34.04", oldPrice: "$86.30" },
-            { name: "L",  price: "$34.04", oldPrice: "$86.30" },
-            { name: "XL", price: "$34.04", oldPrice: "$86.30" }
-        ],
+        // سایزها - هر کدوم نخوای حذف کن
+        sizes: ["XS", "S", "M", "L", "XL"],
         description: "Boho Paisley Sequin Halter Mini Dress – perfect for beach vacation outfits, festival fashion & summer aesthetic looks. Flowy A-line silhouette with shimmering sequin details. Shop this bohemian vacation outfit idea today!",
         link: "https://s.click.aliexpress.com/e/_c3eDnKez"
     },
@@ -307,8 +288,6 @@ const products = {
     /* ---------- Product #2 ---------- */
     2: {
         name: "Luxury Logo Slide Sandals",
-        price: "$59.83",
-        oldPrice: "$139.14",
         rating: 5.0,
         ratingCount: 5,
         sold: 78,
@@ -320,15 +299,7 @@ const products = {
             { hex: "#F0E0A8", name: "Yellow" },
             { hex: "#E0339E", name: "Rosy Red" }
         ],
-        sizes: [
-            { name: "35",  price: "$59.83", oldPrice: "$139.14" },
-            { name: "36",  price: "$59.83", oldPrice: "$139.14" },
-            { name: "37",  price: "$59.83", oldPrice: "$139.14" },
-            { name: "38",  price: "$59.83", oldPrice: "$139.14" },
-            { name: "39", price: "$59.83", oldPrice: "$139.14" },
-            { name: "40", price: "$59.83", oldPrice: "$139.14" },
-            { name: "41", price: "$59.83", oldPrice: "$139.14" }
-        ],
+        sizes: ["35", "36", "37", "38", "39", "40", "41"],
         description: "Sleek black slide sandals with a signature logo detail. Non-slip flat sole for all-day comfort — perfect for the beach, pool, or casual summer days.",
         link: "https://s.click.aliexpress.com/e/_c3qcoOhx"
     },
@@ -336,8 +307,6 @@ const products = {
     /* ---------- Product #3 ---------- */
     3: {
         name: "Fashion Halter Neck Long Skirt Suit Women Backless Sling Top Lace Up Fold Maxi Skirts 2024 New Summer Female 2 Piece Set Outfits",
-        price: "$40.00",
-        oldPrice: "$120.00",
         rating: 4.5,
         ratingCount: 19.0,
         sold: 247,
@@ -346,11 +315,7 @@ const products = {
         colors: [
             { hex: "#FFFFFF", name: "Beige" }
         ],
-        sizes: [
-            { name: "S",  price: "$26.18", oldPrice: "$65.30" },
-            { name: "M",  price: "$31.62", oldPrice: "$76.40" },
-            { name: "L",  price: "$39.60", oldPrice: "$92.70" },
-        ],
+        sizes: ["S", "M", "L"],
         description: "",
         link: ""
     },
@@ -358,8 +323,6 @@ const products = {
     /* ---------- Product #4 ---------- */
     4: {
         name: "",
-        price: "",
-        oldPrice: "",
         rating: 4.9,
         ratingCount: 0,
         sold: 0,
@@ -369,13 +332,7 @@ const products = {
             { hex: "#000000", name: "Black" },
             { hex: "#F5F5DC", name: "Beige" }
         ],
-        sizes: [
-            { name: "XS", price: "", oldPrice: "" },
-            { name: "S",  price: "", oldPrice: "" },
-            { name: "M",  price: "", oldPrice: "" },
-            { name: "L",  price: "", oldPrice: "" },
-            { name: "XL", price: "", oldPrice: "" }
-        ],
+        sizes: ["XS", "S", "M", "L", "XL"],
         description: "",
         link: ""
     },
@@ -383,8 +340,6 @@ const products = {
     /* ---------- Product #5 ---------- */
     5: {
         name: "",
-        price: "",
-        oldPrice: "",
         rating: 4.8,
         ratingCount: 0,
         sold: 0,
@@ -394,13 +349,7 @@ const products = {
             { hex: "#90EE90", name: "Green" },
             { hex: "#FFB6C1", name: "Pink" }
         ],
-        sizes: [
-            { name: "XS", price: "", oldPrice: "" },
-            { name: "S",  price: "", oldPrice: "" },
-            { name: "M",  price: "", oldPrice: "" },
-            { name: "L",  price: "", oldPrice: "" },
-            { name: "XL", price: "", oldPrice: "" }
-        ],
+        sizes: ["XS", "S", "M", "L", "XL"],
         description: "",
         link: ""
     },
@@ -408,8 +357,6 @@ const products = {
     /* ---------- Product #6 - کیف ---------- */
     6: {
         name: "",
-        price: "",
-        oldPrice: "",
         rating: 4.9,
         ratingCount: 0,
         sold: 0,
@@ -419,9 +366,7 @@ const products = {
             { hex: "#D2B48C", name: "Natural" },
             { hex: "#8B4513", name: "Brown" }
         ],
-        sizes: [
-            { name: "One Size", price: "", oldPrice: "" }
-        ],
+        sizes: ["One Size"],
         description: "",
         link: ""
     },
@@ -429,8 +374,6 @@ const products = {
     /* ---------- Product #7 - دمپایی ---------- */
     7: {
         name: "",
-        price: "",
-        oldPrice: "",
         rating: 4.7,
         ratingCount: 0,
         sold: 0,
@@ -440,14 +383,7 @@ const products = {
             { hex: "#8B4513", name: "Brown" },
             { hex: "#000000", name: "Black" }
         ],
-        sizes: [
-            { name: "36", price: "", oldPrice: "" },
-            { name: "37", price: "", oldPrice: "" },
-            { name: "38", price: "", oldPrice: "" },
-            { name: "39", price: "", oldPrice: "" },
-            { name: "40", price: "", oldPrice: "" },
-            { name: "41", price: "", oldPrice: "" }
-        ],
+        sizes: ["36", "37", "38", "39", "40", "41"],
         description: "",
         link: ""
     },
@@ -455,8 +391,6 @@ const products = {
     /* ---------- محصول جدید اضافه کن ----------
     8: {
         name: "",
-        price: "",
-        oldPrice: "",
         rating: 5,
         ratingCount: 0,
         sold: 0,
@@ -466,10 +400,7 @@ const products = {
             { hex: "#000000", name: "Black" },
             { hex: "#FFFFFF", name: "White" }
         ],
-        sizes: [
-            { name: "S", price: "", oldPrice: "" },
-            { name: "M", price: "", oldPrice: "" }
-        ],
+        sizes: ["S", "M"],
         description: "",
         link: ""
     },
@@ -533,8 +464,6 @@ function loadProduct() {
 
     document.title = p.name + ' – WaishStyle';
     document.getElementById('prod-name').textContent          = p.name;
-    document.getElementById('prod-price').textContent         = p.price;
-    document.getElementById('prod-old-price').textContent     = p.oldPrice;
     document.getElementById('prod-desc').textContent          = p.description;
     document.getElementById('prod-btn').href                  = p.link;
     document.getElementById('prod-stars').innerHTML           = renderStars(p.rating);
@@ -545,22 +474,16 @@ function loadProduct() {
     // Slider
     buildSlider(p.images.filter(Boolean));
 
-    // Sizes with price
+    // Sizes (no price)
     const sizesRow  = document.getElementById('prod-sizes');
     const sizesWrap = document.getElementById('prod-sizes-wrap');
     if (p.sizes && p.sizes.length > 0) {
         sizesWrap.style.display = 'block';
         sizesRow.innerHTML = p.sizes.map((s, i) => `
-            <div class="size-tag ${i===0?'active':''}" onclick="selectSize(this, '${s.price}', '${s.oldPrice}')">
-                <span class="size-name">${s.name}</span>
-                ${s.price ? `<span class="size-price">${s.price}</span>` : ''}
-                ${s.oldPrice ? `<span class="size-old">${s.oldPrice}</span>` : ''}
+            <div class="size-tag ${i===0?'active':''}" onclick="selectSize(this)">
+                <span class="size-name">${s}</span>
             </div>
         `).join('');
-        if (p.sizes[0].price) {
-            document.getElementById('prod-price').textContent     = p.sizes[0].price;
-            document.getElementById('prod-old-price').textContent = p.sizes[0].oldPrice;
-        }
     } else {
         sizesWrap.style.display = 'none';
     }
@@ -595,11 +518,9 @@ function loadProduct() {
     if (typeof renderReviews === 'function') renderReviews(id);
 }
 
-function selectSize(el, price, oldPrice) {
+function selectSize(el) {
     document.querySelectorAll('.size-tag').forEach(t => t.classList.remove('active'));
     el.classList.add('active');
-    if (price) document.getElementById('prod-price').textContent     = price;
-    if (oldPrice) document.getElementById('prod-old-price').textContent = oldPrice;
 }
 
 function selectColor(el) {
