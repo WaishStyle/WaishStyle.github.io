@@ -129,26 +129,26 @@ const reviews = {
     /* ---------- Reviews for Product #4 ---------- */
     4: [
         {
-            name: "Isabella C.",
-            avatar: "I",
+            name: "D***e",
+            avatar: "D",
             country: "🇺🇸 United States",
             rating: 5,
-            size: "M",
-            color: "Black",
+            size: "S",
+            color: "Pink",
             likes: 22,
-            date: "June 13, 2026",
-            text: "Perfect for vacation! So comfortable and stylish. Will buy more colors."
+            date: "May 29, 2026",
+            text: "Came in time , looks just like the picture only thing is it’s very mesh and see through have to wear undergarments that’s the same color"
         },
         {
-            name: "Luna P.",
-            avatar: "L",
-            country: "🇫🇷 France",
+            name: "M***n",
+            avatar: "M",
+            country: "🇺🇸 United States",
             rating: 5,
-            size: "S",
-            color: "Beige",
+            size: "L",
+            color: "Pink",
             likes: 14,
-            date: "June 7, 2026",
-            text: "Exactly as described. Great quality and fast shipping!"
+            date: "June 12, 2026",
+            text: "The dress is beautiful and exactly the same as the picture . i love how sheer it is without showing anything. very breathtaking and breathable. the only con i have is tying the dress was an experienced! the crystal makes it hard to tie especially if you have a big chest. just know the crystal will be digging in your neck until you remove the dress but beauty is pain."
         }
     ],
 
