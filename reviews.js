@@ -200,7 +200,7 @@ const reviews = {
         }
     ],
 
-    /* ---------- Reviews for Product #6 - کیف ---------- */
+    /* ---------- Reviews for Product #6 ---------- */
     6: [
         {
             name: "e***h",
@@ -214,19 +214,30 @@ const reviews = {
             text: "just as in the photo Seller gave a little cute purse for my order It's big capacity straw bag and very nice Thank you seller Shipment was fast too"
         },
         {
-            name: "Zoe K.",
-            avatar: "Z",
-            country: "🇦🇺 Australia",
+            name: "L***n",
+            avatar: "L",
+            country: "🇺🇸 Canada",
             rating: 5,
-            size: "One Size",
-            color: "Natural",
-            likes: 16,
-            date: "June 9, 2026",
+            size: "35cm",
+            color: "Pink",
+            likes: 12,
+            date: "Apr 12, 2026",
+            text: "just as in the photo Seller gave a little cute purse for my order It's big capacity straw bag and very nice Thank you seller Shipment was fast too"
+        },
+        {
+            name: "E***a",
+            avatar: "Z",
+            country: "🇦🇺 Germany",
+            rating: 5,
+            size: "30",
+            color: "Black",
+            likes: 22,
+            date: "Jul 15, 2025",
             text: "Exactly what I was looking for! Fits everything and looks so cute."
         }
     ],
 
-    /* ---------- Reviews for Product #7 - دمپایی ---------- */
+    /* ---------- Reviews for Product #7 ---------- */
     7: [
         {
             name: "Evelyn H.",
