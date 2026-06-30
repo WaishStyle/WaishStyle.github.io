@@ -157,7 +157,7 @@ const reviews = {
             rating: 5,
             size: "M",
             color: "Blue",
-            likes: 14,
+            likes: 35,
             date: "Apr 02, 2026",
             text: "Definitely looks like the picture very happy with it. fits a little big to a medium but nothing i can’t work with perfect definitely will order well. i’m gonna order another one. that’s not what i like it. in shipment was very fast."
         }
