@@ -166,15 +166,15 @@ const reviews = {
     /* ---------- Reviews for Product #5 ---------- */
     5: [
         {
-            name: "Charlotte D.",
-            avatar: "C",
+            name: "H***t",
+            avatar: "H",
             country: "🇺🇸 United States",
             rating: 5,
-            size: "L",
-            color: "Green",
+            size: "S",
+            color: "SK1",
             likes: 19,
-            date: "June 11, 2026",
-            text: "Great product! Exactly as described. Fast shipping too."
+            date: "Aug 21, 2025",
+            text: "Hate the top"
         },
         {
             name: "Amelia F.",
