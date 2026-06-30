@@ -248,7 +248,7 @@ const reviews = {
             color: "White",
             likes: 17,
             date: "Mar 12, 2026",
-            text: "So comfortable! Perfect for walking around on vacation. Love them!"
+            text: "Perfect for special occasions. Whether it's a wedding, gala, or formal dinner, this dress is the perfect choice."
         },
         {
             name: "b***e",
@@ -259,7 +259,7 @@ const reviews = {
             color: "Brown",
             likes: 25,
             date: "Apr 01, 2026",
-            text: "So comfortable! Perfect for walking around on vacation. Love them!"
+            text: "Perfect brown dress! Size m fits great, buttons add nice detail. Soft fabric, fast shipping. Love it!"
         },
         {
             name: "p***r",
@@ -270,7 +270,7 @@ const reviews = {
             color: "Black",
             likes: 8,
             date: "Mar 05, 2026",
-            text: "Cute sandals, true to size. Good quality for the price."
+            text: "The dress is easy to accessorize, pairs well with heels and a small bag"
         }
     ],
 
