@@ -177,26 +177,26 @@ const reviews = {
             text: "Hate the top"
         },
         {
-            name: "H***t",
-            avatar: "H",
-            country: "🇺🇸 United States",
+            name: "M***a",
+            avatar: "M",
+            country: "🇲🇽 Mexio",
             rating: 5,
-            size: "S",
+            size: "M",
             color: "SK1",
-            likes: 19,
-            date: "Aug 21, 2025",
-            text: "Hate the top"
+            likes: 24,
+            date: "Jul 24, 2025",
+            text: "Very beautiful fabric of excellent quality like the image."
         },
         {
-            name: "Amelia F.",
-            avatar: "A",
-            country: "🇬🇧 United Kingdom",
-            rating: 4,
-            size: "M",
-            color: "Pink",
+            name: "D***r",
+            avatar: "D",
+            country: "🇩🇪 Germany",
+            rating: 5,
+            size: "L",
+            color: "SK1",
             likes: 13,
-            date: "June 3, 2026",
-            text: "Beautiful and well made. Very happy with this purchase!"
+            date: "Aug 07, 2025",
+            text: "locks very pretty"
         }
     ],
 
