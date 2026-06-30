@@ -216,24 +216,24 @@ const reviews = {
         {
             name: "L***n",
             avatar: "L",
-            country: "🇺🇸 Canada",
+            country: "🇨🇦 Canada",
             rating: 5,
             size: "35cm",
             color: "Pink",
             likes: 12,
             date: "Apr 12, 2026",
-            text: "just as in the photo Seller gave a little cute purse for my order It's big capacity straw bag and very nice Thank you seller Shipment was fast too"
+            text: "Love it, quick delivery, cute bag, good price and even got a cute free gift (bunny coin pouch). will be buying again from this seller :)"
         },
         {
             name: "E***a",
-            avatar: "Z",
-            country: "🇦🇺 Germany",
+            avatar: "E",
+            country: "🇩🇪 Germany",
             rating: 5,
             size: "30",
             color: "Black",
             likes: 22,
             date: "Jul 15, 2025",
-            text: "Exactly what I was looking for! Fits everything and looks so cute."
+            text: "Excellent,bag, I simply adore them - looks stylish and very comfortable! Delivery was slightly delayed, but not critical, about three weeks to Germany"
         }
     ],
 
