@@ -240,25 +240,36 @@ const reviews = {
     /* ---------- Reviews for Product #7 ---------- */
     7: [
         {
-            name: "Evelyn H.",
+            name: "e***n",
             avatar: "E",
             country: "🇺🇸 United States",
             rating: 5,
-            size: "38",
-            color: "Brown",
+            size: "L",
+            color: "White",
             likes: 17,
-            date: "June 9, 2026",
+            date: "Mar 12, 2026",
             text: "So comfortable! Perfect for walking around on vacation. Love them!"
         },
         {
-            name: "Luna J.",
-            avatar: "L",
+            name: "b***e",
+            avatar: "K",
             country: "🇨🇦 Canada",
-            rating: 4,
-            size: "37",
+            rating: 5,
+            size: "M",
+            color: "Brown",
+            likes: 25,
+            date: "Apr 01, 2026",
+            text: "So comfortable! Perfect for walking around on vacation. Love them!"
+        },
+        {
+            name: "p***r",
+            avatar: "P",
+            country: "🇩🇪 Germany",
+            rating: 5,
+            size: "M",
             color: "Black",
             likes: 8,
-            date: "May 28, 2026",
+            date: "Mar 05, 2026",
             text: "Cute sandals, true to size. Good quality for the price."
         }
     ],
