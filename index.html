@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaishStyle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #E91E63;
+            --pink-dark: #C2185B;
+            --bg: #E7E7E7;
+            --white: #fff;
+            --text: #1E1E1E;
+            --muted: #777;
+            --radius: 20px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        img { pointer-events: none; -webkit-user-drag: none; }
+
+        /* NAV */
+        nav { display: flex; justify-content: center; padding: 14px 16px; }
+        .nav-inner {
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.7);
+            border-radius: 999px; height: 44px;
+            display: flex; align-items: center; padding: 0 20px; gap: 8px;
+        }
+        .logo-icon {
+            width: 28px; height: 28px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 800; font-size: 14px;
+        }
+        .logo-text { font-size: 1rem; font-weight: 700; color: var(--text); }
+        .logo-text span { color: var(--pink); }
+
+        /* PRODUCT LAYOUT */
+        #product-container { display: none; max-width: 860px; margin: 32px auto; padding: 0 24px; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+
+        /* SLIDER - 9:16 */
+        .slider-wrap {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            aspect-ratio: 9 / 16;
+            position: relative;
+            background: #ddd;
+        }
+        .slider-track { display: flex; height: 100%; transition: transform 0.4s ease; }
+        .slider-slide { min-width: 100%; height: 100%; }
+        .slider-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .slider-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.8); border: none;
+            width: 36px; height: 36px; border-radius: 50%;
+            font-size: 1rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+        .slider-dots {
+            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 6px;
+        }
+        .dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.2s;
+        }
+        .dot.active { background: #fff; }
+
+        /* INFO */
+        .prod-info { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 80px; }
+        .prod-name { font-size: 1.4rem; font-weight: 700; line-height: 1.3; }
+
+        /* RATING */
+        .prod-rating-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .stars-row { display: flex; gap: 2px; }
+        .star { font-size: 1rem; }
+        .star.full { color: #f59e0b; }
+        .star.half { color: #f59e0b; opacity: 0.5; }
+        .star.empty { color: #ddd; }
+        .rating-score { font-weight: 700; font-size: 0.95rem; }
+        .rating-count, .sold-count { color: var(--muted); font-size: 0.85rem; }
+
+        /* SIZES */
+        .sizes-label { font-size: 0.9rem; font-weight: 600; }
+        .sizes-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+        .size-tag {
+            padding: 8px 14px;
+            border: 1.5px solid #ddd;
+            border-radius: 12px;
+            font-size: 0.8rem; font-weight: 600;
+            cursor: pointer; transition: all 0.15s;
+            background: var(--white); text-align: center;
+        }
+        .size-tag:hover, .size-tag.active { border-color: var(--pink); color: var(--pink); background: #fff0f5; }
+        .size-name { display: block; font-size: 0.85rem; }
+
+        /* COLORS */
+        .colors-label { font-size: 0.9rem; font-weight: 600; }
+        .colors-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; align-items: center; }
+        .color-dot-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; }
+        .color-dot {
+            width: 28px; height: 28px; border-radius: 50%;
+            border: 2px solid transparent;
+            transition: all 0.15s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+        }
+        .color-dot-wrap:hover .color-dot,
+        .color-dot-wrap.active .color-dot { border-color: var(--pink); transform: scale(1.15); }
+        .color-name-label { font-size: 0.7rem; color: var(--muted); font-weight: 500; }
+
+        /* SHIP FROM */
+        .ship-from { font-size: 0.82rem; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+        .ship-from span { font-weight: 600; color: var(--text); }
+
+        .prod-desc { color: var(--muted); line-height: 1.8; font-size: 0.9rem; }
+
+        /* BUTTON */
+        .prod-btn {
+            display: flex; align-items: center; justify-content: center;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            color: #fff; font-weight: 700; font-size: 1rem;
+            border-radius: 999px; text-decoration: none;
+            box-shadow: 0 6px 20px rgba(233,30,99,0.35);
+            transition: transform 0.2s;
+        }
+        .prod-btn:hover { transform: translateY(-2px); }
+
+        /* REVIEWS */
+        .reviews-section { margin-top: 48px; }
+        .reviews-section h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+        .reviews-avg { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .avg-score { font-size: 3rem; font-weight: 800; line-height: 1; }
+        .reviews-count { font-size: 0.85rem; color: var(--muted); margin-top: 4px; display: block; }
+        .reviews-list { display: flex; flex-direction: column; gap: 16px; }
+        .review-card { background: var(--white); border-radius: var(--radius); padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .review-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+        .reviewer-avatar {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 700; font-size: 1rem; flex-shrink: 0;
+        }
+        .reviewer-info { flex: 1; }
+        .reviewer-name { font-weight: 600; font-size: 0.9rem; display: block; }
+        .reviewer-date { font-size: 0.8rem; color: var(--muted); }
+        .review-stars { display: flex; gap: 2px; margin-left: auto; }
+        .review-text { font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; }
+        .review-likes { font-size: 0.8rem; color: var(--muted); }
+        .review-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+        .review-tag {
+            padding: 3px 10px;
+            background: #f5f5f5;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        /* NOT FOUND */
+        #not-found {
+            display: none; flex-direction: column;
+            align-items: center; justify-content: center;
+            min-height: 60vh; gap: 12px; color: var(--muted);
+            text-align: center; padding: 24px;
+        }
+        #not-found h2 { font-size: 1.4rem; color: var(--text); }
+
+        /* RESPONSIVE */
+        @media (max-width: 640px) {
+            .product-grid { grid-template-columns: 1fr; gap: 24px; }
+            .slider-wrap { max-width: 300px; margin: 0 auto; width: 100%; }
+            .prod-info { position: static; }
+            .prod-name { font-size: 1.2rem; }
+            #product-container { padding: 0 16px; margin: 20px auto; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <div class="logo-icon">W</div>
+        <span class="logo-text">WaishStyle<span>.</span></span>
+    </div>
+</nav>
+
+<div id="product-container">
+    <div class="product-grid">
+
+        <!-- SLIDER -->
+        <div class="slider-wrap">
+            <div class="slider-track" id="sliderTrack"></div>
+            <button class="slider-btn prev" id="sliderPrev">‹</button>
+            <button class="slider-btn next" id="sliderNext">›</button>
+            <div class="slider-dots" id="sliderDots"></div>
+        </div>
+
+        <!-- INFO -->
+        <div class="prod-info">
+            <h1 id="prod-name"></h1>
+            <div class="prod-rating-row">
+                <div class="stars-row" id="prod-stars"></div>
+                <span class="rating-score" id="prod-rating-score"></span>
+                <span class="rating-count" id="prod-rating-count"></span>
+                <span class="sold-count" id="prod-sold"></span>
+            </div>
+            <div id="prod-sizes-wrap">
+                <div class="sizes-label">Select Size:</div>
+                <div class="sizes-row" id="prod-sizes"></div>
+            </div>
+            <div id="prod-colors-wrap">
+                <div class="colors-label">Select Color:</div>
+                <div class="colors-row" id="prod-colors"></div>
+            </div>
+            <div id="prod-ship-wrap" class="ship-from">🚢 Ships from: <span id="prod-ship"></span></div>
+            <p class="prod-desc" id="prod-desc"></p>
+            <a id="prod-btn" href="#" target="_blank" rel="noopener" class="prod-btn">Shop Now →</a>
+        </div>
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="reviews-section">
+        <h2>Customer Reviews</h2>
+        <div id="reviews-container"></div>
+    </div>
+</div>
+
+<div id="not-found">
+    <h2>Product not found</h2>
+    <p>Check the link and try again.</p>
+</div>
+
+<script src="reviews.js"></script>
+<script>
+
+/* ================================================
+   PRODUCTS
+   - - - - - - - - - - - - - - - - - - - - - - - -
+   colors: رنگ‌ها
+     hex  - کد رنگ (مثال "#8B4513")
+     name - اسم رنگ (مثال "Brown")
+   shipFrom: کشور ارسال (مثال "China" یا "US Warehouse")
+   ================================================ */
+const products = {
+
+    /* ---------- Product #1 ---------- */
+    1: {
+        name: "Bohemian Paisley Sequin Halter Mini Dress",
+        rating: 7.0,
+        ratingCount: 340,
+        sold: 340,
+        shipFrom: "United States",
+        // عکس ها - هر چند تا بخوای اضافه کن
+        images: [
+            "https://i.pinimg.com/736x/3c/54/a9/3c54a959fe31364104227dc9d01b0cd2.jpg",
+            "https://i.pinimg.com/736x/40/9b/aa/409baae37ac2159eeac0943a88fffa94.jpg",
+            ""
+        ],
+        // رنگ ها - هر کدوم نخوای حذف کن
+        colors: [
+            { hex: "#8B4513", name: "MultiColor" },
+            { hex: "#000000", name: "Dark Brown" },
+            { hex: "#F5F5DC", name: "Lv" }
+        ],
+        // سایزها - هر کدوم نخوای حذف کن
+        sizes: ["XS", "S", "M", "L", "XL"],
+        description: "Flowy A-line halter mini dress with shimmering paisley sequin details. Perfect for beach festivals, vacation nights, and bohemian summer looks.",
+        link: "https://s.click.aliexpress.com/e/_c3eDnKez"
+    },
+
+    /* ---------- Product #2 ---------- */
+    2: {
+        name: "Luxury Logo Slide Sandals",
+        rating: 5.0,
+        ratingCount: 5,
+        sold: 78,
+        shipFrom: "United States",
+        images: ["https://i.pinimg.com/736x/ab/3b/bc/ab3bbc0f50632302f71029f09aa67a46.jpg"],
+        images: ["https://i.pinimg.com/736x/ba/0a/24/ba0a24047705c9c5d890545a28058f03.jpg"],
+        colors: [
+            { hex: "#000000", name: "Black" },
+            { hex: "#2E5FDB", name: "Blue" },
+            { hex: "#FFD700", name: "Yellow" },
+            { hex: "#E0339E", name: "Rosy Red" }
+        ],
+        sizes: ["35", "36", "37", "38", "39", "40", "41"],
+        description: "Sleek slide sandals with signature logo detail. Non-slip flat sole for all-day comfort — perfect for pool days, resort walks, and luxury vacation looks.",
+        link: "https://s.click.aliexpress.com/e/_c3qcoOhx"
+    },
+
+    /* ---------- Product #3 ---------- */
+    3: {
+        name: "Boho Fringe Halter & Maxi Skirt Set",
+        rating: 4.5,
+        ratingCount: 19.0,
+        sold: 247,
+        shipFrom: "Unknown",
+        images: ["https://i.pinimg.com/736x/a7/e2/59/a7e259b60bcaa1153b14307b23afc314.jpg"],
+        images: ["https://i.pinimg.com/564x/c0/5b/ee/c05beee04a58fe62d0784dd2e19febe1.jpg"],
+        colors: [
+            { hex: "#FFFFFF", name: "Beige" }
+        ],
+        sizes: ["S", "M", "L"],
+        description: "Elegant halter crop top with backless design and a flowing fringe maxi skirt. Perfect resort wear for beach days, island getaways, and summer vacation looks.",
+        link: "https://s.click.aliexpress.com/e/_c3iCsqZ7"
+    },
+
+    /* ---------- Product #4 ---------- */
+    4: {
+        name: "Nibber Prom Party Gown Dress Woman",
+        rating: 4.7,
+        ratingCount: 52,
+        sold: 600,
+        shipFrom: "United States",
+        images: ["https://i.pinimg.com/736x/74/d9/b7/74d9b7dadf7ba3686d2129c0f623c871.jpg"],
+        colors: [
+            { hex: "#000000", name: "Black" },
+            { hex: "#2E5FDB", name: "Blue" },
+            { hex: "#FF69B4", name: "Pink" },
+            { hex: "#FFD700", name: "Yellow" }
+        ],
+        sizes: ["S", "M", "L"],
+
+        description: "Sleek black maxi gown with luxury chain halter detail and deep backless neckline. Perfect for resort evenings, beach dinners, and unforgettable vacation nights.",
+        link: "https://s.click.aliexpress.com/e/_c3HQgkCp"
+    },
+
+    /* ---------- Product #5 ---------- */
+    5: {
+        name: "Floral Halter Crop Top & Split Maxi Skirt Set",
+        rating: 4.7,
+        ratingCount: 11,
+        sold: 144,
+        shipFrom: "United States",
+        images: ["https://i.pinimg.com/564x/03/b8/58/03b858c6688e6f66f95d7b936d7a9cb6.jpg"],
+        colors: [
+            { hex: "#F0E0A8", name: "SK1" }
+        ],
+        sizes: ["S", "M", "L"],
+        description: "Elegant 3-piece floral set featuring a cowl neck halter crop top and a flowing split maxi skirt. Perfect resort wear for beach days, island getaways, and summer vacation looks.",
+        link: "https://s.click.aliexpress.com/e/_c4eYhigh"
+    },
+
+    /* ---------- Product #6 ---------- */
+    6: {
+        name: "Paris Milano Straw Beach Tote Bag",
+        rating: 4.9,
+        ratingCount: 19,
+        sold: 484,
+        shipFrom: "United States",
+        images: ["https://i.pinimg.com/564x/de/ab/26/deab26e80349a2a1edacacf4d59ab4f3.jpg"],
+        colors: [
+            { hex: "#FFFFFF", name: "Beige" },
+            { hex: "#D2B48C", name: "Khaki" },
+            { hex: "#000000", name: "Black" },
+            { hex: "#FF69B4", name: "Pink" }
+        ],
+        sizes: ["30", "35", "40", "Max"],
+        description: "Handmade woven straw tote with iconic Paris Milano detail. Lightweight mesh design — perfect for beach days, poolside trips, and summer vacation essentials.",
+        link: "https://s.click.aliexpress.com/e/_c35qABB3"
+    },
+
+    /* ---------- Product #7 ---------- */
+    7: {
+        name: "White Knit Button-Front Midi Dress",
+        rating: 4.9,
+        ratingCount: 50,
+        sold: 700,
+        shipFrom: "United States",
+        images: ["https://i.pinimg.com/564x/0b/cd/27/0bcd27aac85071ef1b5b70059a002e46.jpg"],
+        colors: [
+            { hex: "#FFFFFF", name: "Withe" },
+            { hex: "#000000", name: "Black" },
+            { hex: "#2E5FDB", name: "Blue" },
+            { hex: "#FF69B4", name: "Pink" },
+            { hex: "#8B4513", name: "Brown" },
+            { hex: "#D2B48C", name: "Khaki" },
+            { hex: "#FFD700", name: "Yellow" },
+            { hex: "#000080", name: "Navy Blue" },
+            { hex: "#800020", name: "Burgundy" },
+            { hex: "#006400", name: "Dark Green" },
+        ],
+        sizes: ["S", "M", "L", "XL", "XXL"],
+        description: "Elegant textured knit midi dress with gold button front detail and faux pockets. Perfect for resort days, European getaways, and effortlessly chic vacation looks.",
+        link: "https://s.click.aliexpress.com/e/_c2yUJ7vn"
+    },
+
+    /* ---------- محصول جدید اضافه کن ----------
+    8: {
+        name: "",
+        rating: 5,
+        ratingCount: 0,
+        sold: 0,
+        shipFrom: "China",
+        images: ["", ""],
+        colors: [
+            { hex: "#000000", name: "Black" },
+            { hex: "#FFFFFF", name: "White" }
+        ],
+        sizes: ["S", "M"],
+        description: "",
+        link: ""
+    },
+    */
+
+};
+
+/* ================================================
+   ENGINE - دست نزن
+   ================================================ */
+let currentSlide = 0;
+let totalSlides = 0;
+
+function renderStars(rating) {
+    let html = '';
+    for (let i = 1; i <= 5; i++) {
+        if (i <= Math.floor(rating)) html += '<span class="star full">★</span>';
+        else if (i - 0.5 <= rating) html += '<span class="star half">★</span>';
+        else html += '<span class="star empty">★</span>';
+    }
+    return html;
+}
+
+function buildSlider(images) {
+    const track = document.getElementById('sliderTrack');
+    const dots  = document.getElementById('sliderDots');
+    currentSlide = 0;
+    totalSlides  = images.length;
+
+    track.innerHTML = images.map(img => `
+        <div class="slider-slide"><img src="${img}" alt="product"></div>
+    `).join('');
+
+    dots.innerHTML = images.map((_, i) =>
+        `<div class="dot ${i===0?'active':''}" onclick="goToSlide(${i})"></div>`
+    ).join('');
+
+    goToSlide(0);
+}
+
+function goToSlide(n) {
+    currentSlide = (n + totalSlides) % totalSlides;
+    document.getElementById('sliderTrack').style.transform = `translateX(-${currentSlide * 100}%)`;
+    document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+
+document.getElementById('sliderPrev').onclick = () => goToSlide(currentSlide - 1);
+document.getElementById('sliderNext').onclick = () => goToSlide(currentSlide + 1);
+
+function loadProduct() {
+    const id = parseInt(window.location.hash.slice(1));
+    const p  = products[id];
+    const container = document.getElementById('product-container');
+    const notFound  = document.getElementById('not-found');
+
+    if (!p || !p.name) {
+        container.style.display = 'none';
+        notFound.style.display  = 'flex';
+        return;
+    }
+
+    document.title = p.name + ' – WaishStyle';
+    document.getElementById('prod-name').textContent          = p.name;
+    document.getElementById('prod-desc').textContent          = p.description;
+    document.getElementById('prod-btn').href                  = p.link;
+    document.getElementById('prod-stars').innerHTML           = renderStars(p.rating);
+    document.getElementById('prod-rating-score').textContent  = p.rating;
+    document.getElementById('prod-rating-count').textContent  = `(${p.ratingCount} reviews)`;
+    document.getElementById('prod-sold').textContent          = `· ${p.sold} sold`;
+
+    // Slider
+    buildSlider(p.images.filter(Boolean));
+
+    // Sizes (no price)
+    const sizesRow  = document.getElementById('prod-sizes');
+    const sizesWrap = document.getElementById('prod-sizes-wrap');
+    if (p.sizes && p.sizes.length > 0) {
+        sizesWrap.style.display = 'block';
+        sizesRow.innerHTML = p.sizes.map((s, i) => `
+            <div class="size-tag ${i===0?'active':''}" onclick="selectSize(this)">
+                <span class="size-name">${s}</span>
+            </div>
+        `).join('');
+    } else {
+        sizesWrap.style.display = 'none';
+    }
+
+    // Colors
+    const colorsRow  = document.getElementById('prod-colors');
+    const colorsWrap = document.getElementById('prod-colors-wrap');
+    if (p.colors && p.colors.length > 0) {
+        colorsWrap.style.display = 'block';
+        colorsRow.innerHTML = p.colors.map((c, i) => `
+            <div class="color-dot-wrap ${i===0?'active':''}" onclick="selectColor(this)" title="${c.name}">
+                <div class="color-dot" style="background:${c.hex};"></div>
+                <span class="color-name-label">${c.name}</span>
+            </div>
+        `).join('');
+    } else {
+        colorsWrap.style.display = 'none';
+    }
+
+    // Ship From
+    const shipWrap = document.getElementById('prod-ship-wrap');
+    if (p.shipFrom) {
+        shipWrap.style.display = 'flex';
+        document.getElementById('prod-ship').textContent = p.shipFrom;
+    } else {
+        shipWrap.style.display = 'none';
+    }
+
+    container.style.display = 'block';
+    notFound.style.display  = 'none';
+
+    if (typeof renderReviews === 'function') renderReviews(id);
+}
+
+function selectSize(el) {
+    document.querySelectorAll('.size-tag').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+}
+
+function selectColor(el) {
+    document.querySelectorAll('.color-dot-wrap').forEach(t => t.classList.remove('active'));
+    el.classList.add('active');
+}
+
+window.addEventListener('hashchange', loadProduct);
+loadProduct();
+
+/* ================================================
+   SECURITY - ضد کپی
+   ================================================ */
+document.addEventListener('contextmenu', e => e.preventDefault());
+document.addEventListener('keydown', e => {
+    if (e.ctrlKey && ['c','u','s','a'].includes(e.key.toLowerCase())) e.preventDefault();
+    if (e.key === 'F12') e.preventDefault();
+});
+
+</script>
+</body>
+</html>
