@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WaishStyle</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pink: #E91E63;
+            --pink-dark: #C2185B;
+            --bg: #E7E7E7;
+            --white: #fff;
+            --text: #1E1E1E;
+            --muted: #777;
+            --radius: 20px;
+            --blog-gap: 20px;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        img { pointer-events: none; -webkit-user-drag: none; }
+
+        nav { display: flex; justify-content: center; padding: 14px 16px; }
+        .nav-inner {
+            background: rgba(255,255,255,0.55);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255,255,255,0.7);
+            border-radius: 999px; height: 44px;
+            display: flex; align-items: center; padding: 0 20px; gap: 8px;
+        }
+        .logo-icon {
+            width: 28px; height: 28px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            border-radius: 8px;
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 800; font-size: 14px;
+            text-decoration: none;
+        }
+        .logo-text { font-size: 1rem; font-weight: 700; color: var(--text); }
+        .logo-text span { color: var(--pink); }
+
+        #blog-home { display: block; width: 100%; }
+        #product-page { display: none; }
+
+        .blog-header {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 30px 20px 10px;
+        }
+        .blog-header h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(135deg, var(--text), var(--pink));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .blog-header p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-top: 4px;
+        }
+
+        .blog-list-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+            display: flex;
+            flex-direction: column;
+            gap: var(--blog-gap);
+        }
+        .blog-list-container.hidden {
+            display: none;
+        }
+
+        .blog-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            cursor: pointer;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 0;
+            min-height: 180px;
+        }
+        .blog-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+
+        .blog-card-img {
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            padding: 12px;
+        }
+        .blog-card-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 16px;
+            transition: transform 0.3s ease;
+        }
+        .blog-card:hover .blog-card-img img {
+            transform: scale(1.03);
+        }
+
+        .blog-card-body {
+            padding: 18px 20px 18px 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .blog-card-body .cat-tag {
+            font-size: 0.6rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--pink);
+            background: #fff0f5;
+            padding: 3px 14px;
+            border-radius: 999px;
+            display: inline-block;
+            width: fit-content;
+            margin-bottom: 6px;
+        }
+        .blog-card-body h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 4px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+        .blog-card-body .excerpt {
+            color: var(--muted);
+            font-size: 0.85rem;
+            line-height: 1.6;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        .blog-card-body .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.7rem;
+            color: var(--muted);
+            flex-wrap: wrap;
+        }
+        .blog-card-body .card-meta .mini-avatar {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.6rem;
+            flex-shrink: 0;
+        }
+        .blog-card-body .card-meta .read-link {
+            margin-left: auto;
+            color: var(--pink);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.75rem;
+        }
+        .blog-card-body .card-meta .read-link:hover {
+            text-decoration: underline;
+        }
+
+        .single-post {
+            display: none;
+            max-width: 820px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+        .single-post.visible {
+            display: block;
+        }
+        .single-post .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 999px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: var(--text);
+            cursor: pointer;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+            transition: all 0.2s;
+            margin-bottom: 24px;
+        }
+        .single-post .back-btn:hover {
+            background: var(--pink);
+            color: #fff;
+            transform: translateX(-4px);
+        }
+        .single-post .post-full-img {
+            border-radius: var(--radius);
+            overflow: hidden;
+            margin-bottom: 24px;
+            aspect-ratio: 16/9;
+        }
+        .single-post .post-full-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .single-post .post-full-category {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--pink);
+            background: #fff0f5;
+            padding: 4px 14px;
+            border-radius: 999px;
+            display: inline-block;
+        }
+        .single-post .post-full-title {
+            font-size: 2rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin: 12px 0 8px;
+        }
+        .single-post .post-full-meta {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--muted);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+        .single-post .post-full-meta .author-avatar-lg {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .single-post .post-full-content {
+            font-size: 1rem;
+            line-height: 1.9;
+            color: var(--text);
+        }
+        .single-post .post-full-content p {
+            margin-bottom: 16px;
+        }
+
+        #product-container { max-width: 860px; margin: 32px auto; padding: 0 20px; }
+        .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+
+        .slider-wrap {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+            aspect-ratio: 9 / 16;
+            position: relative;
+            background: #ddd;
+        }
+        .slider-track { display: flex; height: 100%; transition: transform 0.4s ease; }
+        .slider-slide { min-width: 100%; height: 100%; }
+        .slider-slide img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .slider-btn {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            background: rgba(255,255,255,0.8); border: none;
+            width: 36px; height: 36px; border-radius: 50%;
+            font-size: 1rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+            z-index: 10;
+        }
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+        .slider-dots {
+            position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+            display: flex; gap: 6px;
+        }
+        .dot {
+            width: 7px; height: 7px; border-radius: 50%;
+            background: rgba(255,255,255,0.5); cursor: pointer; transition: background 0.2s;
+        }
+        .dot.active { background: #fff; }
+
+        .prod-info { display: flex; flex-direction: column; gap: 16px; position: sticky; top: 80px; }
+        .prod-name { font-size: 1.4rem; font-weight: 700; line-height: 1.3; }
+
+        .prod-rating-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+        .stars-row { display: flex; gap: 2px; }
+        .star { font-size: 1rem; }
+        .star.full { color: #f59e0b; }
+        .star.half { color: #f59e0b; opacity: 0.5; }
+        .star.empty { color: #ddd; }
+        .rating-score { font-weight: 700; font-size: 0.95rem; }
+        .rating-count, .sold-count { color: var(--muted); font-size: 0.85rem; }
+
+        .sizes-label { font-size: 0.9rem; font-weight: 600; }
+        .sizes-row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 6px; }
+        .size-tag {
+            padding: 8px 14px;
+            border: 1.5px solid #ddd;
+            border-radius: 12px;
+            font-size: 0.8rem; font-weight: 600;
+            cursor: pointer; transition: all 0.15s;
+            background: var(--white); text-align: center;
+        }
+        .size-tag:hover, .size-tag.active { border-color: var(--pink); color: var(--pink); background: #fff0f5; }
+        .size-name { display: block; font-size: 0.85rem; }
+
+        .colors-label { font-size: 0.9rem; font-weight: 600; }
+        .colors-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 8px; align-items: center; }
+        .color-dot-wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; cursor: pointer; }
+        .color-dot {
+            width: 28px; height: 28px; border-radius: 50%;
+            border: 2px solid transparent;
+            transition: all 0.15s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+        }
+        .color-dot-wrap:hover .color-dot,
+        .color-dot-wrap.active .color-dot { border-color: var(--pink); transform: scale(1.15); }
+        .color-name-label { font-size: 0.7rem; color: var(--muted); font-weight: 500; }
+
+        .ship-from { font-size: 0.82rem; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+        .ship-from span { font-weight: 600; color: var(--text); }
+        .prod-desc { color: var(--muted); line-height: 1.8; font-size: 0.9rem; }
+
+        .prod-btn {
+            display: flex; align-items: center; justify-content: center;
+            padding: 16px 32px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            color: #fff; font-weight: 700; font-size: 1rem;
+            border-radius: 999px; text-decoration: none;
+            box-shadow: 0 6px 20px rgba(233,30,99,0.35);
+            transition: transform 0.2s;
+        }
+        .prod-btn:hover { transform: translateY(-2px); }
+
+        .reviews-section { margin-top: 48px; }
+        .reviews-section h2 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+        .reviews-avg { display: flex; align-items: center; gap: 16px; margin-bottom: 20px; }
+        .avg-score { font-size: 3rem; font-weight: 800; line-height: 1; }
+        .reviews-count { font-size: 0.85rem; color: var(--muted); margin-top: 4px; display: block; }
+        .reviews-list { display: flex; flex-direction: column; gap: 16px; }
+        .review-card { background: var(--white); border-radius: var(--radius); padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+        .review-top { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; flex-wrap: wrap; }
+        .reviewer-avatar {
+            width: 40px; height: 40px;
+            background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: #fff; font-weight: 700; font-size: 1rem; flex-shrink: 0;
+        }
+        .reviewer-info { flex: 1; }
+        .reviewer-name { font-weight: 600; font-size: 0.9rem; display: block; }
+        .reviewer-date { font-size: 0.8rem; color: var(--muted); }
+        .review-stars { display: flex; gap: 2px; margin-left: auto; }
+        .review-text { font-size: 0.9rem; line-height: 1.7; margin-bottom: 12px; }
+        .review-likes { font-size: 0.8rem; color: var(--muted); }
+        .review-meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px; }
+        .review-tag {
+            padding: 3px 10px;
+            background: #f5f5f5;
+            border-radius: 999px;
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-weight: 500;
+        }
+
+        #not-found {
+            display: none; flex-direction: column;
+            align-items: center; justify-content: center;
+            min-height: 60vh; gap: 12px; color: var(--muted);
+            text-align: center; padding: 24px;
+        }
+        #not-found h2 { font-size: 1.4rem; color: var(--text); }
+
+        @media (max-width: 768px) {
+            .blog-header {
+                padding: 20px 16px 5px;
+            }
+            .blog-header h1 {
+                font-size: 1.5rem;
+            }
+            .blog-header p {
+                font-size: 0.85rem;
+            }
+
+            .blog-list-container {
+                padding: 0 16px 40px;
+                gap: 16px;
+            }
+
+            .blog-card {
+                grid-template-columns: 130px 1fr;
+                min-height: 140px;
+                border-radius: 16px;
+            }
+            .blog-card-img {
+                padding: 10px;
+            }
+            .blog-card-img img {
+                border-radius: 12px;
+            }
+            .blog-card-body {
+                padding: 12px 14px 12px 4px;
+            }
+            .blog-card-body .cat-tag {
+                font-size: 0.5rem;
+                padding: 2px 10px;
+                margin-bottom: 4px;
+            }
+            .blog-card-body h3 {
+                font-size: 0.9rem;
+            }
+            .blog-card-body .excerpt {
+                font-size: 0.75rem;
+                -webkit-line-clamp: 2;
+                margin-bottom: 4px;
+            }
+            .blog-card-body .card-meta {
+                font-size: 0.6rem;
+                gap: 4px;
+            }
+            .blog-card-body .card-meta .mini-avatar {
+                width: 18px;
+                height: 18px;
+                font-size: 0.5rem;
+            }
+            .blog-card-body .card-meta .read-link {
+                font-size: 0.65rem;
+            }
+
+            .single-post {
+                padding: 0 16px 40px;
+            }
+            .single-post .post-full-title {
+                font-size: 1.4rem;
+            }
+            .single-post .post-full-content {
+                font-size: 0.95rem;
+            }
+            .single-post .back-btn {
+                font-size: 0.8rem;
+                padding: 8px 16px;
+            }
+
+            .product-grid {
+                grid-template-columns: 1fr;
+                gap: 24px;
+            }
+            .slider-wrap {
+                max-width: 300px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            .prod-info {
+                position: static;
+            }
+            .prod-name {
+                font-size: 1.2rem;
+            }
+            #product-container {
+                padding: 0 16px;
+                margin: 20px auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .blog-card {
+                grid-template-columns: 100px 1fr;
+                min-height: 120px;
+                border-radius: 14px;
+            }
+            .blog-card-img {
+                padding: 8px;
+            }
+            .blog-card-img img {
+                border-radius: 10px;
+            }
+            .blog-card-body {
+                padding: 10px 10px 10px 2px;
+            }
+            .blog-card-body .cat-tag {
+                font-size: 0.45rem;
+                padding: 1px 8px;
+            }
+            .blog-card-body h3 {
+                font-size: 0.8rem;
+            }
+            .blog-card-body .excerpt {
+                font-size: 0.7rem;
+                -webkit-line-clamp: 1;
+            }
+            .blog-card-body .card-meta {
+                font-size: 0.55rem;
+            }
+            .blog-card-body .card-meta .mini-avatar {
+                width: 16px;
+                height: 16px;
+                font-size: 0.4rem;
+            }
+            .blog-card-body .card-meta .read-link {
+                font-size: 0.6rem;
+            }
+            .single-post .post-full-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-inner">
+        <a href="/" class="logo-icon">W</a>
+        <span class="logo-text">WaishStyle<span>.</span></span>
+    </div>
+</nav>
+
+<!-- ====== BLOG HOME ====== -->
+<div id="blog-home">
+    <div class="blog-header">
+        <h1>Style Stories &amp; Travel Diaries</h1>
+        <p>Inspiring looks, outfit ideas, and fashion moments from around the world.</p>
+    </div>
+
+    <div class="blog-list-container" id="blogList"></div>
+
+    <div class="single-post" id="singlePost">
+        <button class="back-btn" id="backBtn">← Back to all posts</button>
+        <div class="post-full-img" id="postFullImg"></div>
+        <span class="post-full-category" id="postFullCategory"></span>
+        <h1 class="post-full-title" id="postFullTitle"></h1>
+        <div class="post-full-meta" id="postFullMeta"></div>
+        <div class="post-full-content" id="postFullContent"></div>
+    </div>
+</div>
+
+<!-- ====== PRODUCT PAGE ====== -->
+<div id="product-page">
+    <div id="product-container">
+        <div class="product-grid">
+            <div class="slider-wrap">
+                <div class="slider-track" id="sliderTrack"></div>
+                <button class="slider-btn prev" id="sliderPrev">‹</button>
+                <button class="slider-btn next" id="sliderNext">›</button>
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+            <div class="prod-info">
+                <h1 id="prod-name"></h1>
+                <div class="prod-rating-row">
+                    <div class="stars-row" id="prod-stars"></div>
+                    <span class="rating-score" id="prod-rating-score"></span>
+                    <span class="rating-count" id="prod-rating-count"></span>
+                    <span class="sold-count" id="prod-sold"></span>
+                </div>
+                <div id="prod-sizes-wrap">
+                    <div class="sizes-label">Select Size:</div>
+                    <div class="sizes-row" id="prod-sizes"></div>
+                </div>
+                <div id="prod-colors-wrap">
+                    <div class="colors-label">Select Color:</div>
+                    <div class="colors-row" id="prod-colors"></div>
+                </div>
+                <div id="prod-ship-wrap" class="ship-from">🚢 Ships from: <span id="prod-ship"></span></div>
+                <p class="prod-desc" id="prod-desc"></p>
+                <a id="prod-btn" href="#" target="_blank" rel="noopener" class="prod-btn">Shop Now →</a>
+            </div>
+        </div>
+        <div class="reviews-section">
+            <h2>Customer Reviews</h2>
+            <div id="reviews-container"></div>
+        </div>
+    </div>
+    <div id="not-found">
+        <h2>Product not found</h2>
+        <p>Check the link and try again.</p>
+    </div>
+</div>
+
+<script src="products.js"></script>
+<script src="reviews.js"></script>
+<script>
+    // ============================================
+    // BLOG DATA
+    // ============================================
+    
+    const blogPosts = [
+        {
+            title: "How to Style a Boho Dress for Summer Vacations",
+            excerpt: "From beach parties to sunset dinners — here's how to rock the bohemian look with ease. Plus, the best accessories to pair with it.",
+            image: "https://i.pinimg.com/564x/a7/e2/59/a7e259b60bcaa1153b14307b23afc314.jpg",
+            category: "Fashion",
+            author: "Elena",
+            date: "June 10, 2026"
+        },
+        {
+            title: "5 Must-Have Bags for Your Next Island Trip",
+            excerpt: "Straw totes, woven crossbodies, and chic clutches — we've rounded up the best vacation bags that are both stylish and practical.",
+            image: "https://i.pinimg.com/564x/de/ab/26/deab26e80349a2a1edacacf4d59ab4f3.jpg",
+            category: "Travel",
+            author: "Sofia",
+            date: "June 5, 2026"
+        },
+        {
+            title: "The Perfect Slides: Comfort Meets Luxury",
+            excerpt: "Why logo slides are taking over resort wear. From poolside to dinner, these are the ultimate summer staple.",
+            image: "https://i.pinimg.com/736x/ab/3b/bc/ab3bbc0f50632302f71029f09aa67a46.jpg",
+            category: "Style",
+            author: "Liam",
+            date: "May 28, 2026"
+        },
+        {
+            title: "Maxi Dresses That Turn Heads Everywhere",
+            excerpt: "Flowing silhouettes, bold colors, and effortless elegance — these maxi dresses are all you need for a dreamy vacation wardrobe.",
+            image: "https://i.pinimg.com/736x/74/d9/b7/74d9b7dadf7ba3686d2129c0f623c871.jpg",
+            category: "Fashion",
+            author: "Mia",
+            date: "May 20, 2026"
+        },
+        {
+            title: "What to Wear to a Beach Wedding",
+            excerpt: "Guest style tips for seaside ceremonies. Light fabrics, pastel tones, and the perfect accessories to complete your look.",
+            image: "https://i.pinimg.com/564x/03/b8/58/03b858c6688e6f66f95d7b936d7a9cb6.jpg",
+            category: "Wedding",
+            author: "Elena",
+            date: "May 12, 2026"
+        },
+        {
+            title: "Knit Dresses: The Unexpected Vacation Hero",
+            excerpt: "Soft, breathable, and incredibly chic — knit midi dresses are the new must-have for resort evenings and city strolls.",
+            image: "https://i.pinimg.com/564x/0b/cd/27/0bcd27aac85071ef1b5b70059a002e46.jpg",
+            category: "Style",
+            author: "Noah",
+            date: "May 5, 2026"
+        }
+    ];
+
+    // ============================================
+    // RENDER BLOG
+    // ============================================
+    function renderBlog() {
+        const list = document.getElementById('blogList');
+        if (!list) return;
+
+        list.innerHTML = blogPosts.map((p, index) => `
+            <div class="blog-card" onclick="showPost(${index})">
+                <div class="blog-card-img">
+                    <img src="${p.image}" alt="${p.title}" loading="lazy">
+                </div>
+                <div class="blog-card-body">
+                    <span class="cat-tag">${p.category || 'Style'}</span>
+                    <h3>${p.title}</h3>
+                    <p class="excerpt">${p.excerpt || ''}</p>
+                    <div class="card-meta">
+                        <span class="mini-avatar">${p.author?.[0] || 'W'}</span>
+                        <span>${p.author || 'WaishStyle'}</span>
+                        <span>·</span>
+                        <span>${p.date || ''}</span>
+                        <span class="read-link">Read More →</span>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    // ============================================
+    // SHOW / HIDE SINGLE POST
+    // ============================================
+    const blogList = document.getElementById('blogList');
+    const singlePost = document.getElementById('singlePost');
+    const backBtn = document.getElementById('backBtn');
+
+    function showPost(index) {
+        const p = blogPosts[index];
+        if (!p) return;
+
+        blogList.classList.add('hidden');
+        singlePost.classList.add('visible');
+
+        document.getElementById('postFullImg').innerHTML = `<img src="${p.image}" alt="${p.title}">`;
+        document.getElementById('postFullCategory').textContent = p.category || 'Style';
+        document.getElementById('postFullTitle').textContent = p.title;
+        document.getElementById('postFullMeta').innerHTML = `
+            <span class="author-avatar-lg">${p.author?.[0] || 'W'}</span>
+            <span>${p.author || 'WaishStyle'}</span>
+            <span>·</span>
+            <span>${p.date || ''}</span>
+        `;
+        document.getElementById('postFullContent').innerHTML = `
+            <p>${p.excerpt || ''}</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>${p.author || 'WaishStyle'} shares her personal experience with this stunning look. From the fabric quality to the perfect fit — every detail matters when you're traveling in style.</p>
+        `;
+
+        window.history.pushState({ post: index }, p.title, `?post=${index}`);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function hidePost() {
+        blogList.classList.remove('hidden');
+        singlePost.classList.remove('visible');
+
+        const url = new URL(window.location);
+        url.searchParams.delete('post');
+        window.history.pushState({}, '', url);
+    }
+
+    // ====== دکمه برگشت ======
+    if (backBtn) {
+        backBtn.onclick = hidePost;
+    }
+
+    // ============================================
+    // PRODUCT FUNCTIONS
+    // ============================================
+    let currentSlide = 0;
+    let totalSlides = 0;
+
+    function renderStars(rating) {
+        let html = '';
+        for (let i = 1; i <= 5; i++) {
+            if (i <= Math.floor(rating)) html += '<span class="star full">★</span>';
+            else if (i - 0.5 <= rating) html += '<span class="star half">★</span>';
+            else html += '<span class="star empty">★</span>';
+        }
+        return html;
+    }
+
+    function buildSlider(images) {
+        const track = document.getElementById('sliderTrack');
+        const dots = document.getElementById('sliderDots');
+        currentSlide = 0;
+        totalSlides = images.length;
+        track.innerHTML = images.map(img => `<div class="slider-slide"><img src="${img}" alt="product"></div>`).join('');
+        dots.innerHTML = images.map((_, i) => `<div class="dot ${i===0?'active':''}" onclick="goToSlide(${i})"></div>`).join('');
+        goToSlide(0);
+    }
+
+    function goToSlide(n) {
+        currentSlide = (n + totalSlides) % totalSlides;
+        document.getElementById('sliderTrack').style.transform = `translateX(-${currentSlide * 100}%)`;
+        document.querySelectorAll('.dot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+    }
+
+    document.getElementById('sliderPrev').onclick = () => goToSlide(currentSlide - 1);
+    document.getElementById('sliderNext').onclick = () => goToSlide(currentSlide + 1);
+
+    function loadProduct() {
+        const id = parseInt(window.location.hash.slice(1));
+        const p = window.products ? window.products[id] : null;
+        const container = document.getElementById('product-container');
+        const notFound = document.getElementById('not-found');
+
+        if (!p || !p.name) {
+            document.getElementById('blog-home').style.display = 'none';
+            document.getElementById('product-page').style.display = 'block';
+            container.style.display = 'none';
+            notFound.style.display = 'flex';
+            return;
+        }
+
+        document.getElementById('blog-home').style.display = 'none';
+        document.getElementById('product-page').style.display = 'block';
+        container.style.display = 'block';
+        notFound.style.display = 'none';
+
+        document.title = p.name + ' – WaishStyle';
+        document.getElementById('prod-name').textContent = p.name;
+        document.getElementById('prod-desc').textContent = p.description;
+        document.getElementById('prod-btn').href = p.link;
+        document.getElementById('prod-stars').innerHTML = renderStars(p.rating);
+        document.getElementById('prod-rating-score').textContent = p.rating;
+        document.getElementById('prod-rating-count').textContent = `(${p.ratingCount} reviews)`;
+        document.getElementById('prod-sold').textContent = `· ${p.sold} sold`;
+
+        buildSlider(p.images.filter(Boolean));
+
+        const sizesRow = document.getElementById('prod-sizes');
+        const sizesWrap = document.getElementById('prod-sizes-wrap');
+        if (p.sizes && p.sizes.length > 0) {
+            sizesWrap.style.display = 'block';
+            sizesRow.innerHTML = p.sizes.map((s, i) => `
+                <div class="size-tag ${i===0?'active':''}" onclick="selectSize(this)">
+                    <span class="size-name">${s}</span>
+                </div>
+            `).join('');
+        } else {
+            sizesWrap.style.display = 'none';
+        }
+
+        const colorsRow = document.getElementById('prod-colors');
+        const colorsWrap = document.getElementById('prod-colors-wrap');
+        if (p.colors && p.colors.length > 0) {
+            colorsWrap.style.display = 'block';
+            colorsRow.innerHTML = p.colors.map((c, i) => `
+                <div class="color-dot-wrap ${i===0?'active':''}" onclick="selectColor(this)" title="${c.name}">
+                    <div class="color-dot" style="background:${c.hex};"></div>
+                    <span class="color-name-label">${c.name}</span>
+                </div>
+            `).join('');
+        } else {
+            colorsWrap.style.display = 'none';
+        }
+
+        const shipWrap = document.getElementById('prod-ship-wrap');
+        if (p.shipFrom) {
+            shipWrap.style.display = 'flex';
+            document.getElementById('prod-ship').textContent = p.shipFrom;
+        } else {
+            shipWrap.style.display = 'none';
+        }
+
+        if (typeof renderReviews === 'function') renderReviews(id);
+    }
+
+    function selectSize(el) {
+        document.querySelectorAll('.size-tag').forEach(t => t.classList.remove('active'));
+        el.classList.add('active');
+    }
+
+    function selectColor(el) {
+        document.querySelectorAll('.color-dot-wrap').forEach(t => t.classList.remove('active'));
+        el.classList.add('active');
+    }
+
+    // ============================================
+    // PAGE ROUTER
+    // ============================================
+    function showPage() {
+        const hash = window.location.hash;
+        const params = new URLSearchParams(window.location.search);
+        const postIndex = params.get('post');
+
+        if (hash && hash.length > 1) {
+            loadProduct();
+        } else if (postIndex !== null) {
+            document.getElementById('blog-home').style.display = 'block';
+            document.getElementById('product-page').style.display = 'none';
+            document.title = 'WaishStyle – Blog';
+            renderBlog();
+            const idx = parseInt(postIndex);
+            if (!isNaN(idx) && idx < blogPosts.length) {
+                showPost(idx);
+            } else {
+                hidePost();
+            }
+        } else {
+            document.getElementById('blog-home').style.display = 'block';
+            document.getElementById('product-page').style.display = 'none';
+            document.title = 'WaishStyle – Style Stories & Travel Diaries';
+            renderBlog();
+            hidePost();
+        }
+    }
+
+    window.addEventListener('popstate', showPage);
+    window.addEventListener('hashchange', showPage);
+    
+    // اجرای اولیه
+    showPage();
+
+    // ============================================
+    // SECURITY
+    // ============================================
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('keydown', e => {
+        if (e.ctrlKey && ['c', 'u', 's', 'a'].includes(e.key.toLowerCase())) e.preventDefault();
+        if (e.key === 'F12') e.preventDefault();
+    });
+</script>
+</body>
+</html>
