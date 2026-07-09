@@ -86,7 +86,7 @@ const products = {
         sold: 144,
         shipFrom: "United States",
         images: [
-            "https://i.pinimg.com/564x/03/b8/58/03b858c6688e6f66f95d7b936d7a9cb6.jpg"
+            "https://i.pinimg.com/564x/03/b8/58/03b858c6688e6f66f95d7b936d7a9cb6.jpg",
             "https://i.pinimg.com/736x/23/7d/4f/237d4f1d8b65457a4819ac5fea6d2e64.jpg"
         ],
         colors: [
