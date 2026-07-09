@@ -103,7 +103,8 @@ const products = {
         sold: 484,
         shipFrom: "United States",
         images: [
-            "https://i.pinimg.com/564x/de/ab/26/deab26e80349a2a1edacacf4d59ab4f3.jpg"
+            "https://i.pinimg.com/564x/de/ab/26/deab26e80349a2a1edacacf4d59ab4f3.jpg",
+            "https://i.pinimg.com/736x/cc/9d/4a/cc9d4aa09ca43c934ffb62a0fb845cb5.jpg"
         ],
         colors: [
             { hex: "#FFFFFF", name: "Beige" },
@@ -112,7 +113,7 @@ const products = {
             { hex: "#FF69B4", name: "Pink" }
         ],
         sizes: ["30", "35", "40", "Max"],
-        description: "Handmade woven straw tote with iconic Paris Milano detail. Lightweight mesh design — perfect for beach days, poolside trips, and summer vacation essentials.",
+        description: "Handwoven straw tote with iconic Paris Milano detail. Lightweight mesh design — perfect for tropical beach days, island hopping, and summer vacation essentials.",
         link: "https://s.click.aliexpress.com/e/_c35qABB3"
     },
     7: {
