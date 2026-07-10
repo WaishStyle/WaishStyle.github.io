@@ -117,13 +117,14 @@ const products = {
         link: "https://s.click.aliexpress.com/e/_c35qABB3"
     },
     7: {
-        name: "White Knit Button-Front Midi Dress",
+        name: "Textured Knit Button-Front Midi Dress",
         rating: 4.9,
         ratingCount: 50,
         sold: 700,
         shipFrom: "United States",
         images: [
-            "https://i.pinimg.com/564x/0b/cd/27/0bcd27aac85071ef1b5b70059a002e46.jpg"
+            "https://i.pinimg.com/564x/0b/cd/27/0bcd27aac85071ef1b5b70059a002e46.jpg",
+            "https://i.pinimg.com/736x/29/81/3d/29813d50e81ef07b1b8cc49fe5376c49.jpg"
         ],
         colors: [
             { hex: "#FFFFFF", name: "White" },
@@ -138,7 +139,7 @@ const products = {
             { hex: "#006400", name: "Dark Green" }
         ],
         sizes: ["S", "M", "L", "XL", "XXL"],
-        description: "Elegant textured knit midi dress with gold button front detail and faux pockets. Perfect for resort days, European getaways, and effortlessly chic vacation looks.",
+        description: "Elegant textured knit midi dress with gold button front detail and faux pockets. Perfect for island walks, coastal dining, and effortlessly chic European vacation looks.",
         link: "https://s.click.aliexpress.com/e/_c2yUJ7vn"
     }
 };
