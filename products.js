@@ -11,7 +11,8 @@ const products = {
         shipFrom: "United States",
         images: [
             "https://i.pinimg.com/736x/3c/54/a9/3c54a959fe31364104227dc9d01b0cd2.jpg",
-            "https://i.pinimg.com/736x/40/9b/aa/409baae37ac2159eeac0943a88fffa94.jpg"
+            "https://i.pinimg.com/736x/40/9b/aa/409baae37ac2159eeac0943a88fffa94.jpg",
+            "https://i.pinimg.com/736x/51/fa/52/51fa52ec0bed5957c4336e2e78d87b26.jpg"
         ],
         colors: [
             { hex: "#8B4513", name: "MultiColor" },
