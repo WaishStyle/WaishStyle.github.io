@@ -40,7 +40,7 @@ const products = {
             { hex: "#E0339E", name: "Rosy Red" }
         ],
         sizes: ["35", "36", "37", "38", "39", "40", "41"],
-        description: "Sleek slide sandals with signature logo detail. Non-slip flat sole for all-day comfort — perfect for pool days, resort walks, and luxury vacation looks.",
+        description: "Bring effortless style to every sunny destination with these luxury pink logo slide sandals. Designed with a lightweight non-slip flat sole and bold signature logo detail, they're ideal for beach vacations, poolside relaxation, tropical resorts, and everyday summer wear. Comfortable, modern, and easy to pair with dresses, swimwear, or casual outfits, these slides are the perfect finishing touch for your warm-weather wardrobe.",
         link: "https://s.click.aliexpress.com/e/_c3qcoOhx"
     },
     3: {
