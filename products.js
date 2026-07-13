@@ -45,20 +45,21 @@ const products = {
         link: "https://s.click.aliexpress.com/e/_c3qcoOhx"
     },
     3: {
-        name: "Boho Fringe Halter & Maxi Skirt Set",
+        name: "Boho Lace Maxi Dress for Greek Island Vacations",
         rating: 4.5,
         ratingCount: 19,
         sold: 247,
         shipFrom: "Unknown",
         images: [
             "https://i.pinimg.com/736x/a7/e2/59/a7e259b60bcaa1153b14307b23afc314.jpg",
-            "https://i.pinimg.com/564x/c0/5b/ee/c05beee04a58fe62d0784dd2e19febe1.jpg"
+            "https://i.pinimg.com/564x/c0/5b/ee/c05beee04a58fe62d0784dd2e19febe1.jpg",
+            "https://i.pinimg.com/736x/04/2b/9e/042b9e78186b8f6c04bfdb31f6ebbe46.jpg"
         ],
         colors: [
             { hex: "#FFFFFF", name: "Beige" }
         ],
         sizes: ["S", "M", "L"],
-        description: "Elegant halter crop top with backless design and a flowing fringe maxi skirt. Perfect resort wear for beach days, island getaways, and summer vacation looks.",
+        description: "Capture the beauty of Mediterranean summers with this elegant boho lace maxi dress. Designed with intricate lace detailing, a flattering silhouette, and lightweight fabric, it's the perfect choice for Greek island adventures, coastal vacations, resort evenings, beachside dinners, and European summer travel. Easy to style and effortlessly feminine, this timeless maxi dress brings together comfort, romance, and vacation-ready elegance for every warm-weather escape.",
         link: "https://s.click.aliexpress.com/e/_c3iCsqZ7"
     },
     4: {
