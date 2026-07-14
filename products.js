@@ -63,14 +63,15 @@ const products = {
         link: "https://s.click.aliexpress.com/e/_c3iCsqZ7"
     },
     4: {
-        name: "Chain Halter Maxi Gown",
+        name: "Chain Halter Maxi Resort Gown",
         rating: 4.7,
         ratingCount: 52,
         sold: 600,
         shipFrom: "United States",
         images: [
             "https://i.pinimg.com/736x/74/d9/b7/74d9b7dadf7ba3686d2129c0f623c871.jpg",
-            "https://i.pinimg.com/736x/ab/20/eb/ab20eb5e9e2f67597d13193098216283.jpg"
+            "https://i.pinimg.com/736x/ab/20/eb/ab20eb5e9e2f67597d13193098216283.jpg",
+            "https://i.pinimg.com/736x/c9/52/59/c9525990d1feecdb47e7e4378edc012c.jpg"
         ],
         colors: [
             { hex: "#000000", name: "Black" },
@@ -79,7 +80,7 @@ const products = {
             { hex: "#FFD700", name: "Yellow" }
         ],
         sizes: ["S", "M", "L"],
-        description: "Flowing maxi gown with luxury chain halter detail and deep backless neckline. Perfect for resort evenings, poolside dinners, and unforgettable tropical vacation nights.",
+        description: "Elegant chain halter maxi gown featuring shimmering chain accents and a flowing sheer silhouette. Perfect for luxury resorts, tropical vacations, beach weddings, sunset dinners, and sophisticated summer evening occasions.",
         link: "https://s.click.aliexpress.com/e/_c3HQgkCp"
     },
     5: {
