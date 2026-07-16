@@ -109,7 +109,8 @@ const products = {
         shipFrom: "United States",
         images: [
             "https://i.pinimg.com/564x/de/ab/26/deab26e80349a2a1edacacf4d59ab4f3.jpg",
-            "https://i.pinimg.com/736x/cc/9d/4a/cc9d4aa09ca43c934ffb62a0fb845cb5.jpg"
+            "https://i.pinimg.com/736x/cc/9d/4a/cc9d4aa09ca43c934ffb62a0fb845cb5.jpg",
+            "https://i.pinimg.com/736x/aa/83/21/aa8321e9dd3c204502bf8813cd259c06.jpg"
         ],
         colors: [
             { hex: "#FFFFFF", name: "Beige" },
@@ -118,7 +119,7 @@ const products = {
             { hex: "#FF69B4", name: "Pink" }
         ],
         sizes: ["30", "35", "40", "Max"],
-        description: "Handwoven straw tote with iconic Paris Milano detail. Lightweight mesh design — perfect for tropical beach days, island hopping, and summer vacation essentials.",
+        description: "The Paris Milano Straw Tote Bag combines timeless woven craftsmanship with effortless summer elegance. Designed for beach vacations, coastal adventures, and everyday resort style, this spacious straw tote is lightweight, breathable, and perfect for carrying all your essentials. Whether you're exploring the Greek Islands, relaxing by the pool, or heading to the beach, this stylish woven bag completes every summer outfit with a luxurious coastal aesthetic.",
         link: "https://s.click.aliexpress.com/e/_c35qABB3"
     },
     7: {
