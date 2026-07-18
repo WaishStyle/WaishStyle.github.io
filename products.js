@@ -4,7 +4,7 @@
 
 const products = {
     1: {
-        name: "Bohemian Paisley Sequin Halter Mini Dress",
+        name: "Bohemian Paisley Sequin Halter Mini Dress | Beach Vacation & Resort Style",
         rating: 4.7,
         ratingCount: 340,
         sold: 340,
@@ -12,7 +12,8 @@ const products = {
         images: [
             "https://i.pinimg.com/736x/3c/54/a9/3c54a959fe31364104227dc9d01b0cd2.jpg",
             "https://i.pinimg.com/736x/40/9b/aa/409baae37ac2159eeac0943a88fffa94.jpg",
-            "https://i.pinimg.com/736x/51/fa/52/51fa52ec0bed5957c4336e2e78d87b26.jpg"
+            "https://i.pinimg.com/736x/51/fa/52/51fa52ec0bed5957c4336e2e78d87b26.jpg",
+            "https://i.pinimg.com/736x/8c/dc/cf/8cdccf0249e381f360e235eee29e56c5.jpg"
         ],
         colors: [
             { hex: "#8B4513", name: "MultiColor" },
@@ -20,7 +21,7 @@ const products = {
             { hex: "#F5F5DC", name: "Lv" }
         ],
         sizes: ["XS", "S", "M", "L", "XL"],
-        description: "Flowy A-line halter mini dress with shimmering paisley sequin details. Perfect for beach festivals, vacation nights, and bohemian summer looks.",
+        description: "Capture effortless summer elegance with this bohemian paisley sequin halter mini dress. Featuring a flowy A-line silhouette and shimmering paisley details, this lightweight mini dress is perfect for beach vacations, Mediterranean escapes, tropical resorts, and warm summer evenings. Whether you're strolling through coastal villages, enjoying sunset dinners, or exploring island destinations, this boho-inspired dress brings timeless vacation style to every occasion.",
         link: "https://s.click.aliexpress.com/e/_c3eDnKez"
     },
     2: {
