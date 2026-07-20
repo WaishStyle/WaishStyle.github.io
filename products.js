@@ -55,7 +55,8 @@ const products = {
         images: [
             "https://i.pinimg.com/736x/a7/e2/59/a7e259b60bcaa1153b14307b23afc314.jpg",
             "https://i.pinimg.com/564x/c0/5b/ee/c05beee04a58fe62d0784dd2e19febe1.jpg",
-            "https://i.pinimg.com/736x/04/2b/9e/042b9e78186b8f6c04bfdb31f6ebbe46.jpg"
+            "https://i.pinimg.com/736x/04/2b/9e/042b9e78186b8f6c04bfdb31f6ebbe46.jpg",
+            "https://i.pinimg.com/564x/88/42/25/884225d8c0cfe7259858166542509780.jpg"
         ],
         colors: [
             { hex: "#FFFFFF", name: "Beige" }
