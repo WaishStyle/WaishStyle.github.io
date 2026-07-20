@@ -46,7 +46,7 @@ const products = {
         link: "https://s.click.aliexpress.com/e/_c3qcoOhx"
     },
     3: {
-        name: "Boho Lace Maxi Dress for Greek Island Vacations",
+        name: "Boho Lace Maxi Dress | Elegant Greek Island Vacation & Resort Dress",
         rating: 4.5,
         ratingCount: 19,
         sold: 247,
@@ -60,7 +60,7 @@ const products = {
             { hex: "#FFFFFF", name: "Beige" }
         ],
         sizes: ["S", "M", "L"],
-        description: "Capture the beauty of Mediterranean summers with this elegant boho lace maxi dress. Designed with intricate lace detailing, a flattering silhouette, and lightweight fabric, it's the perfect choice for Greek island adventures, coastal vacations, resort evenings, beachside dinners, and European summer travel. Easy to style and effortlessly feminine, this timeless maxi dress brings together comfort, romance, and vacation-ready elegance for every warm-weather escape.",
+        description: "Elevate your summer wardrobe with our Boho Lace Maxi Dress, designed with delicate lace detailing and a graceful flowing silhouette. Perfect for Greek island vacations, Amalfi Coast getaways, Santorini sunsets, resort evenings, beach holidays, and European summer adventures. This timeless maxi dress blends romantic elegance with effortless bohemian style, making it the perfect choice for vacations, destination dinners, and coastal escapes.",
         link: "https://s.click.aliexpress.com/e/_c3iCsqZ7"
     },
     4: {
