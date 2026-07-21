@@ -34,7 +34,7 @@ const products = {
             "https://i.pinimg.com/736x/ab/3b/bc/ab3bbc0f50632302f71029f09aa67a46.jpg",
             "https://i.pinimg.com/736x/ba/0a/24/ba0a24047705c9c5d890545a28058f03.jpg",
             "https://i.pinimg.com/736x/aa/52/f4/aa52f4c1f15b3ad2f19eac5b0ab3da9d.jpg",
-            "https://i.pinimg.com/736x/2b/9c/65/2b9c656bb9ee39d3d69a0b9b1519e39a.jpg"
+            "https://i.pinimg.com/564x/2b/9c/65/2b9c656bb9ee39d3d69a0b9b1519e39a.jpg"
         ],
         colors: [
             { hex: "#000000", name: "Black" },
