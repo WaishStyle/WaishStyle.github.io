@@ -96,7 +96,8 @@ const products = {
         images: [
             "https://i.pinimg.com/564x/03/b8/58/03b858c6688e6f66f95d7b936d7a9cb6.jpg",
             "https://i.pinimg.com/736x/23/7d/4f/237d4f1d8b65457a4819ac5fea6d2e64.jpg",
-            "https://i.pinimg.com/736x/51/6e/90/516e9016e9c48f1fdfa3805f6d9ac3a2.jpg"
+            "https://i.pinimg.com/736x/51/6e/90/516e9016e9c48f1fdfa3805f6d9ac3a2.jpg",
+            "https://i.pinimg.com/736x/fb/03/63/fb0363e88dbf7090bd94892cf36adb38.jpg"
         ],
         colors: [
             { hex: "#F0E0A8", name: "SK1" }
@@ -114,7 +115,8 @@ const products = {
         images: [
             "https://i.pinimg.com/564x/de/ab/26/deab26e80349a2a1edacacf4d59ab4f3.jpg",
             "https://i.pinimg.com/736x/cc/9d/4a/cc9d4aa09ca43c934ffb62a0fb845cb5.jpg",
-            "https://i.pinimg.com/736x/aa/83/21/aa8321e9dd3c204502bf8813cd259c06.jpg"
+            "https://i.pinimg.com/736x/aa/83/21/aa8321e9dd3c204502bf8813cd259c06.jpg",
+            "https://i.pinimg.com/564x/12/59/e4/1259e4928f2daac0264f3d181fa2a74e.jpg"
         ],
         colors: [
             { hex: "#FFFFFF", name: "Beige" },
