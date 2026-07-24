@@ -137,7 +137,8 @@ const products = {
         images: [
             "https://i.pinimg.com/564x/0b/cd/27/0bcd27aac85071ef1b5b70059a002e46.jpg",
             "https://i.pinimg.com/736x/29/81/3d/29813d50e81ef07b1b8cc49fe5376c49.jpg",
-            "https://i.pinimg.com/736x/61/0d/91/610d919798b2734748d068ea0dd8568f.jpg"
+            "https://i.pinimg.com/736x/61/0d/91/610d919798b2734748d068ea0dd8568f.jpg",
+            "https://i.pinimg.com/736x/42/f8/b1/42f8b1bc8915f3db24a20df996057a1e.jpg"
         ],
         colors: [
             { hex: "#FFFFFF", name: "White" },
