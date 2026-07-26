@@ -208,6 +208,26 @@ const products = {
         sizes: ["34(EU 35)", "35(EU 35.5)", "36(EU 36)", "37(EU 37)", "38(EU 38)", "39(EU 38.5)", "40(EU 39)", "41(EU 40)", "42(EU 40.5)", "43(EU 41.5)", "44(EU 42)", "45(EU 43)", "46(EU 43.5)", "47", "48"],
         description: "",
         link: "https://s.click.aliexpress.com/e/_c3rtzl5d"
+    },
+    10: {
+        name: "Women's Lightweight Crochet Knit Sweater | Boho Beach Pullover for Summer",
+        rating: 4.9,
+        ratingCount: 43,
+        sold: 137,
+        shipFrom: "United States",
+        images: [
+            "https://i.pinimg.com/564x/33/e4/8a/33e48a0420294ea0be41e13f1c77bdee.jpg",
+            "",
+            "",
+            ""
+        ],
+        colors: [
+            { hex: "#FFFFFF", name: "White" },
+            { hex: "#EBA07E", name: "02 Apricot" }
+        ],
+        sizes: ["S", "M", "L", "XL"],
+        description: "Stay effortlessly stylish with this lightweight crochet knit sweater for women. Designed with breathable open-knit fabric and a relaxed silhouette, it's perfect for beach vacations, resort escapes, casual summer outfits, and layering over swimwear. A timeless boho-inspired pullover that pairs beautifully with shorts, linen trousers, or denim.",
+        link: "https://s.click.aliexpress.com/e/_c4Vbrru3"
     }
 };
 
