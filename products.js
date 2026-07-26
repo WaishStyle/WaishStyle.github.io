@@ -163,7 +163,7 @@ const products = {
         sold: 700,
         shipFrom: "United States",
         images: [
-            "https://i.pinimg.com/564x/0b/cd/27/0bcd27aac85071ef1b5b70059a002e46.jpg",
+            "https://i.pinimg.com/736x/c6/26/b8/c626b8b56b87cde493ee60e6db0fd8c0.jpg",
             "",
             "",
             ""
