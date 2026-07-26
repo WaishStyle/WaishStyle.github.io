@@ -196,14 +196,13 @@ const products = {
             ""
         ],
         colors: [
-            { hex: "#F1F1F1", name: "Custom" },
-            { hex: "#FFFFFF", name: "White" },
+            { hex: "#FF0000", name: "Red" },
             { hex: "#000000", name: "Black" },
             { hex: "#2E5FDB", name: "Blue" },
             { hex: "#FF69B4", name: "Pink" },
             { hex: "#FFD700", name: "Yellow" },
             { hex: "#FFA500", name: "Orange" },
-            { hex: "#008000", name: "Green" },
+            { hex: "#00FFFF", name: "Aqua" },
             { hex: "#800080", name: "Purple" }
         ],
         sizes: ["34(EU 35)", "35(EU 35.5)", "36(EU 36)", "37(EU 37)", "38(EU 38)", "39(EU 38.5)", "40(EU 39)", "41(EU 40)", "42(EU 40.5)", "43(EU 41.5)", "44(EU 42)", "45(EU 43)", "46(EU 43.5)", "47", "48"],
