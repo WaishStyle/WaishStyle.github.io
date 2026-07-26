@@ -179,7 +179,7 @@ const products = {
             { hex: "#008000", name: "Green" },
             { hex: "#800080", name: "Purple" }
         ],
-        sizes: ["2", "4", "6", "8", "10"],
+        sizes: ["2", "4", "6", "8", "10", "12", "14", "14W", "16", "16W", "18W", "20W", "22W", "24W", "Custom Size"],
         description: "Make every summer moment unforgettable with this elegant satin mini dress. Designed with a chic bow-front detail, pleated skirt, and flattering A-line silhouette, it's an ideal choice for birthday parties, homecoming, vacations, bridal celebrations, and romantic evenings. Explore styling inspiration and discover why this timeless pink dress belongs in your warm-weather wardrobe.  ",
         link: "https://s.click.aliexpress.com/e/_c3awY0vD"
     }
