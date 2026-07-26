@@ -158,9 +158,9 @@ const products = {
     },
     8: {
         name: "Satin Bow Mini Dress | Elegant Summer Vacation & Birthday Outfit",
-        rating: 4.9,
-        ratingCount: 50,
-        sold: 700,
+        rating: 4.5,
+        ratingCount: 0,
+        sold: 1000,
         shipFrom: "United States",
         images: [
             "https://i.pinimg.com/736x/c6/26/b8/c626b8b56b87cde493ee60e6db0fd8c0.jpg",
@@ -182,6 +182,33 @@ const products = {
         sizes: ["2", "4", "6", "8", "10", "12", "14", "14W", "16", "16W", "18W", "20W", "22W", "24W", "Custom Size"],
         description: "Make every summer moment unforgettable with this elegant satin mini dress. Designed with a chic bow-front detail, pleated skirt, and flattering A-line silhouette, it's an ideal choice for birthday parties, homecoming, vacations, bridal celebrations, and romantic evenings. Explore styling inspiration and discover why this timeless pink dress belongs in your warm-weather wardrobe.  ",
         link: "https://s.click.aliexpress.com/e/_c3awY0vD"
+    },
+    9: {
+        name: "Sculptural Platform Sandals with Hoof Heel for Summer & Party Looks",
+        rating: 4.7,
+        ratingCount: 31,
+        sold: 364,
+        shipFrom: "United States",
+        images: [
+            "https://i.pinimg.com/564x/a9/3f/7e/a93f7edcccf188aa9f1225c5bb54a31f.jpg",
+            "",
+            "",
+            ""
+        ],
+        colors: [
+            { hex: "#F1F1F1", name: "Custom" },
+            { hex: "#FFFFFF", name: "White" },
+            { hex: "#000000", name: "Black" },
+            { hex: "#2E5FDB", name: "Blue" },
+            { hex: "#FF69B4", name: "Pink" },
+            { hex: "#FFD700", name: "Yellow" },
+            { hex: "#FFA500", name: "Orange" },
+            { hex: "#008000", name: "Green" },
+            { hex: "#800080", name: "Purple" }
+        ],
+        sizes: ["34(EU 35)", "35(EU 35.5)", "36(EU 36)", "37(EU 37)", "38(EU 38)", "39(EU 38.5)", "40(EU 39)", "41(EU 40)", "42(EU 40.5)", "43(EU 41.5)", "44(EU 42)", "45(EU 43)", "46(EU 43.5)", "47", "48"],
+        description: "",
+        link: "https://s.click.aliexpress.com/e/_c3rtzl5d"
     }
 };
 
