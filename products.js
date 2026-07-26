@@ -155,6 +155,33 @@ const products = {
         sizes: ["S", "M", "L", "XL", "XXL"],
         description: "Step into timeless elegance with this textured knit button-front midi dress. Designed for European summer vacations, Greek island adventures, and sophisticated resort styling, this flattering midi dress combines soft knit texture with a feminine silhouette. Perfect for sightseeing, brunch dates, coastal walks, and vacation evenings, it's a versatile wardrobe essential for every stylish summer getaway.",
         link: "https://s.click.aliexpress.com/e/_c2yUJ7vn"
+    },
+    8: {
+        name: "Satin Bow Mini Dress | Elegant Summer Vacation & Birthday Outfit",
+        rating: 4.9,
+        ratingCount: 50,
+        sold: 700,
+        shipFrom: "United States",
+        images: [
+            "https://i.pinimg.com/564x/0b/cd/27/0bcd27aac85071ef1b5b70059a002e46.jpg",
+            "",
+            "",
+            ""
+        ],
+        colors: [
+            { hex: "#F1F1F1", name: "Custom" },
+            { hex: "#FFFFFF", name: "White" },
+            { hex: "#000000", name: "Black" },
+            { hex: "#2E5FDB", name: "Blue" },
+            { hex: "#FF69B4", name: "Pink" },
+            { hex: "#FFD700", name: "Yellow" },
+            { hex: "#FFA500", name: "Orange" },
+            { hex: "#008000", name: "Green" },
+            { hex: "#800080", name: "Purple" }
+        ],
+        sizes: ["2", "4", "6", "8", "10"],
+        description: "Make every summer moment unforgettable with this elegant satin mini dress. Designed with a chic bow-front detail, pleated skirt, and flattering A-line silhouette, it's an ideal choice for birthday parties, homecoming, vacations, bridal celebrations, and romantic evenings. Explore styling inspiration and discover why this timeless pink dress belongs in your warm-weather wardrobe.  ",
+        link: "https://s.click.aliexpress.com/e/_c3awY0vD"
     }
 };
 
