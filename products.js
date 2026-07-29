@@ -228,6 +228,28 @@ const products = {
         sizes: ["S", "M", "L", "XL"],
         description: "Stay effortlessly stylish with this lightweight crochet knit sweater for women. Designed with breathable open-knit fabric and a relaxed silhouette, it's perfect for beach vacations, resort escapes, casual summer outfits, and layering over swimwear. A timeless boho-inspired pullover that pairs beautifully with shorts, linen trousers, or denim.",
         link: "https://s.click.aliexpress.com/e/_c4Vbrru3"
+    },
+    11: {
+        name: "Women's Floral Three Piece Resort Set with Wide Leg Pants | Mediterranean Vacation Outfit",
+        rating: 5,
+        ratingCount: 23,
+        sold: 37,
+        shipFrom: "United States",
+        images: [
+            "https://i.pinimg.com/736x/68/74/6b/68746b773bbb2a883819633386a64f88.jpg",
+            "",
+            "",
+            ""
+        ],
+        colors: [
+            { hex: "#FFFFFF", name: "03 Coat" },
+            { hex: "#FFFFFF", name: "01 Sling Top" },
+            { hex: "#FFFFFF", name: "02 Pant" },
+            { hex: "#FFFFFF", name: "04 Suits(no coat)" }
+        ],
+        sizes: ["S(US 4)", "M(US 6)", "L(US 08/10)", "XL(US 12)"],
+        description: "Refresh your summer wardrobe with this elegant floral three piece matching set featuring a structured corset-inspired cami, lightweight layering piece, and flowing wide leg pants. Perfect for luxury resorts, beach vacations, Mediterranean destinations, cruise holidays, and stylish European summer getaways. Designed for effortless elegance and timeless warm-weather dressing.",
+        link: "https://s.click.aliexpress.com/e/_c3XsKXQr"
     }
 };
 
