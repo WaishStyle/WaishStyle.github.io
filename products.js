@@ -267,7 +267,7 @@ const products = {
             { hex: "#2E5FDB", name: "Blue" },
             { hex: "#FFD700", name: "Yellow" }
         ],
-        sizes: ["S", "M, "L"],
+        sizes: ["S", "M", "L"],
         description: "Embrace effortless elegance with this sage green two piece matching set featuring a romantic off shoulder ruched crop top and a flowing high-low ruffle skirt. Designed for beach vacations, Mediterranean holidays, resort dinners, tropical getaways, and chic European summer styling. Lightweight, feminine, and perfect for creating timeless vacation looks.",
         link: "https://s.click.aliexpress.com/e/_c4M8VyeF"
     }
