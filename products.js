@@ -250,6 +250,26 @@ const products = {
         sizes: ["S(US 4)", "M(US 6)", "L(US 08/10)", "XL(US 12)"],
         description: "Refresh your summer wardrobe with this elegant floral three piece matching set featuring a structured corset-inspired cami, lightweight layering piece, and flowing wide leg pants. Perfect for luxury resorts, beach vacations, Mediterranean destinations, cruise holidays, and stylish European summer getaways. Designed for effortless elegance and timeless warm-weather dressing.",
         link: "https://s.click.aliexpress.com/e/_c3XsKXQr"
+    },
+    12: {
+        name: "Sage Green Off Shoulder Matching Set with High-Low Skirt | Women's Resort Outfit",
+        rating: 4.9,
+        ratingCount: 317,
+        sold: 3000,
+        shipFrom: "United States",
+        images: [
+            "https://i.pinimg.com/564x/8c/1a/9a/8c1a9abee81c6fcbadac2c4d3f63267f.jpg",
+            "",
+            "",
+            ""
+        ],
+        colors: [
+            { hex: "#2E5FDB", name: "Blue" },
+            { hex: "#FFD700", name: "Yellow" }
+        ],
+        sizes: ["S", "M, "L"],
+        description: "Embrace effortless elegance with this sage green two piece matching set featuring a romantic off shoulder ruched crop top and a flowing high-low ruffle skirt. Designed for beach vacations, Mediterranean holidays, resort dinners, tropical getaways, and chic European summer styling. Lightweight, feminine, and perfect for creating timeless vacation looks.",
+        link: "https://s.click.aliexpress.com/e/_c4M8VyeF"
     }
 };
 
