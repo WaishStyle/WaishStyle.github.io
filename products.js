@@ -253,9 +253,9 @@ const products = {
     },
     12: {
         name: "Sage Green Off Shoulder Matching Set with High-Low Skirt | Women's Resort Outfit",
-        rating: 4.9,
-        ratingCount: 317,
-        sold: 3000,
+        rating: 0,
+        ratingCount: 0,
+        sold: 4,
         shipFrom: "United States",
         images: [
             "https://i.pinimg.com/564x/8c/1a/9a/8c1a9abee81c6fcbadac2c4d3f63267f.jpg",
@@ -265,11 +265,11 @@ const products = {
         ],
         colors: [
             { hex: "#2E5FDB", name: "Blue" },
-            { hex: "#FFD700", name: "Yellow" }
+            { hex: "#008000", name: "Greenn" }
         ],
         sizes: ["S", "M", "L"],
         description: "Embrace effortless elegance with this sage green two piece matching set featuring a romantic off shoulder ruched crop top and a flowing high-low ruffle skirt. Designed for beach vacations, Mediterranean holidays, resort dinners, tropical getaways, and chic European summer styling. Lightweight, feminine, and perfect for creating timeless vacation looks.",
-        link: "https://s.click.aliexpress.com/e/_c4M8VyeF"
+        link: "https://s.click.aliexpress.com/e/_c2QaL9V5"
     },
     13: {
         name: "Black & White Woven Beach Tote Bag for Women | Handmade Summer Vacation Handbag",
@@ -278,7 +278,7 @@ const products = {
         sold: 263,
         shipFrom: "United States",
         images: [
-            "https://i.pinimg.com/564x/8c/1a/9a/8c1a9abee81c6fcbadac2c4d3f63267f.jpg",
+            "https://i.pinimg.com/736x/61/18/c0/6118c0b2872f2176c8e777f638eb4cc0.jpg",
             "",
             "",
             ""
@@ -289,6 +289,25 @@ const products = {
         sizes: ["No Size"],
         description: "Carry effortless summer style with this handcrafted black and white woven tote bag. Designed for beach vacations, resort getaways, shopping, and everyday wear, this lightweight handbag combines timeless striped details with practical space for your daily essentials. A versatile accessory for coastal outfits, vacation wardrobes, and casual summer fashion.",
         link: "https://s.click.aliexpress.com/e/_c3fRisOT"
+    },
+    14: {
+        name: "Butter Yellow Floral Maxi Dress for Women | Elegant Resort & Vacation Dress",
+        rating: 4.9,
+        ratingCount: 305,
+        sold: 3000,
+        shipFrom: "United States",
+        images: [
+            "https://i.pinimg.com/564x/29/4a/bb/294abb283fee706d7c4a35fd652b063b.jpg",
+            "",
+            "",
+            ""
+        ],
+        colors: [
+            { hex: "#000000", name: "Black" },
+        ],
+        sizes: ["No Size"],
+        description: "Refresh your seasonal wardrobe with this elegant butter yellow floral maxi dress. Designed with a graceful plunge neckline, lightweight fabric, and a flowing silhouette, it's perfect for beach holidays, resort vacations, garden celebrations, and romantic summer evenings. Pair it with woven handbags and minimalist sandals for an effortlessly chic vacation outfit.",
+        link: "https://s.click.aliexpress.com/e/_c4M8VyeF"
     }
 };
 
