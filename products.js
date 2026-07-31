@@ -270,6 +270,25 @@ const products = {
         sizes: ["S", "M", "L"],
         description: "Embrace effortless elegance with this sage green two piece matching set featuring a romantic off shoulder ruched crop top and a flowing high-low ruffle skirt. Designed for beach vacations, Mediterranean holidays, resort dinners, tropical getaways, and chic European summer styling. Lightweight, feminine, and perfect for creating timeless vacation looks.",
         link: "https://s.click.aliexpress.com/e/_c4M8VyeF"
+    },
+    13: {
+        name: "Black & White Woven Beach Tote Bag for Women | Handmade Summer Vacation Handbag",
+        rating: 4.5,
+        ratingCount: 35,
+        sold: 263,
+        shipFrom: "United States",
+        images: [
+            "https://i.pinimg.com/564x/8c/1a/9a/8c1a9abee81c6fcbadac2c4d3f63267f.jpg",
+            "",
+            "",
+            ""
+        ],
+        colors: [
+            { hex: "#000000", name: "Black" },
+        ],
+        sizes: ["No Size"],
+        description: "Carry effortless summer style with this handcrafted black and white woven tote bag. Designed for beach vacations, resort getaways, shopping, and everyday wear, this lightweight handbag combines timeless striped details with practical space for your daily essentials. A versatile accessory for coastal outfits, vacation wardrobes, and casual summer fashion.",
+        link: "https://s.click.aliexpress.com/e/_c3fRisOT"
     }
 };
 
