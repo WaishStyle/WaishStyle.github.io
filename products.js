@@ -303,9 +303,10 @@ const products = {
             ""
         ],
         colors: [
-            { hex: "#000000", name: "Black" },
+            { hex: "#2E5FDB", name: "Blue" },
+            { hex: "#FFD700", name: "Yellow" }
         ],
-        sizes: ["No Size"],
+        sizes: ["S", "M", "L"],
         description: "Refresh your seasonal wardrobe with this elegant butter yellow floral maxi dress. Designed with a graceful plunge neckline, lightweight fabric, and a flowing silhouette, it's perfect for beach holidays, resort vacations, garden celebrations, and romantic summer evenings. Pair it with woven handbags and minimalist sandals for an effortlessly chic vacation outfit.",
         link: "https://s.click.aliexpress.com/e/_c4M8VyeF"
     }
