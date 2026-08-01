@@ -164,7 +164,7 @@ const products = {
         shipFrom: "United States",
         images: [
             "https://i.pinimg.com/736x/c6/26/b8/c626b8b56b87cde493ee60e6db0fd8c0.jpg",
-            "",
+            "https://i.pinimg.com/736x/f2/d2/b5/f2d2b556008bc4bd62acc68e3a70a80a.jpg",
             "",
             ""
         ],
