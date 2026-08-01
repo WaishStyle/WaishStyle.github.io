@@ -191,7 +191,7 @@ const products = {
         shipFrom: "United States",
         images: [
             "https://i.pinimg.com/564x/a9/3f/7e/a93f7edcccf188aa9f1225c5bb54a31f.jpg",
-            "",
+            "https://i.pinimg.com/564x/a7/dc/cb/a7dccb9e5fa74e09eba0b7bc2106bd09.jpg",
             "",
             ""
         ],
@@ -217,7 +217,7 @@ const products = {
         shipFrom: "United States",
         images: [
             "https://i.pinimg.com/564x/33/e4/8a/33e48a0420294ea0be41e13f1c77bdee.jpg",
-            "",
+            "https://i.pinimg.com/564x/e4/48/3c/e4483c3ced290ff35e3ed95a007be71f.jpg",
             "",
             ""
         ],
