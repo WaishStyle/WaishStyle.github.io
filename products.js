@@ -206,7 +206,7 @@ const products = {
             { hex: "#800080", name: "Purple" }
         ],
         sizes: ["34(EU 35)", "35(EU 35.5)", "36(EU 36)", "37(EU 37)", "38(EU 38)", "39(EU 38.5)", "40(EU 39)", "41(EU 40)", "42(EU 40.5)", "43(EU 41.5)", "44(EU 42)", "45(EU 43)", "46(EU 43.5)", "47", "48"],
-        description: "",
+        description: "Make a statement with these bold hot pink platform wedge sandals, featuring a glossy finish, sculptural platform sole, open-toe design, and adjustable ankle buckle. Perfect for summer parties, vacation outfits, resort evenings, birthdays, and fashion-forward occasions. Pair them with mini dresses, skirts, or tailored summer looks for a striking and confident finish.",
         link: "https://s.click.aliexpress.com/e/_c3rtzl5d"
     },
     10: {
